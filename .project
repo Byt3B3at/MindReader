@@ -3,6 +3,7 @@
 	<name>Spiele</name>
 	<comment></comment>
 	<projects>
+		<project>MagischeKarten</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
