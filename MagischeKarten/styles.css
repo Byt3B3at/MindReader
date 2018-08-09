@@ -1,0 +1,16 @@
+body {
+	background-color: #ffffff;
+}
+
+h1 {
+	color: blue;
+}
+
+label {
+	width: 10em;
+	display: block;
+}
+
+button {
+	display: block;
+}
