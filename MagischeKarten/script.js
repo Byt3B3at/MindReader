@@ -189,7 +189,6 @@ function initialize() {
 function magicGuessing() {
 	
 	
-	
 }
 
 function htmlOutput(cardArrayValues) {
