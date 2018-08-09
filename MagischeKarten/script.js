@@ -13,12 +13,6 @@
  * @version 1.00
  */
 
-/**
-* TODO:
-* Abkuerzung: ab der Karte die die Zahl enthaelt den Rest berechnen (wenn Array Zahl enthaelt mit anderen vergleichen)
-* Check bei "ja" ob die naechste Karte tatsaechlich auch die Zahl enthaelt
-*/
-
 const cardArray1 = Array(
                      
 					1, 9, 17, 25, 33,
