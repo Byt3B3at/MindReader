@@ -1,38 +1,46 @@
 body {
-	
-	background-color: #ffffff;
+    
+    background-color: #ffffff;
     font-family: georgia;
-	
-}
-
-pre {
-	
-    font-family: georgia;
-	white-space: pre;
-    margin: 1em 0;
     
 }
 
-label {
-	
-	width: 10em;
-	display: label;
-	
+h1, h2, h3 {
+    
+    text-align: center;
+    
 }
 
-button {
-	
-	display: button;
-	
+#textOutputArea {
+    
+    text-align: center;
+    
 }
 
 table {
-	
+    
     background-color: #f1f1c1;
     border: 1px solid black;
     border-spacing: 5px;
-	height: 120px;
-	width: 120px;
-	text-align: center;
+    height: 120px;
+    width: 120px;
+    text-align: center;
     
+}
+
+.button {
+    
+    background-color: #0080ff;
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    
+}
+
+.button:hover {
+    
+    background-color: #0000ff;
 }

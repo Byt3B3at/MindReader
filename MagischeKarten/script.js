@@ -99,7 +99,7 @@ const cardArray6 = [
 
 function initialize() {
 	
-	const version = '1.10';
+	const version = '1.20';
 	console.log(`@initialize(): version: ${version}`);
 	
 	htmlElement = document.getElementById('showCards');
@@ -110,21 +110,67 @@ function initialize() {
 	htmlArrayOutput(cardArray1);
 	setLevel(); // 2
 	
-	var button1 = document.getElementById('buttonYes').onclick = function() {
-		
-		showArrayValues(true);
-		
-	};
-	
-	var button2 = document.getElementById('buttonNo').onclick = function() {
-		
-		showArrayValues(false);
-		
-	};
+	displayButtons(true, true, false);
 	
 }
 
-function showArrayValues(numberExists) {
+function displayButtons(showButton1, showButton2, showButton3) {
+	
+	var button1 = document.getElementById('buttonYes');
+	var button2 = document.getElementById('buttonNo');
+	var button3 = document.getElementById('buttonAgain');
+	
+	if (showButton1) {
+		
+		button1.style.display = "initial";
+		
+		button1.onclick = function() {
+		
+		displayArrayValues(true);
+		
+		}
+		
+	} else {
+		
+		button1.style.display = "none";
+		
+	}
+	
+	if (showButton2) {
+		
+		button2.style.display = "initial";
+		
+		button2.onclick = function() {
+		
+		displayArrayValues(true);
+		
+		}
+		
+	} else {
+		
+		button2.style.display = "none";
+		
+	}
+	
+	if (showButton3) {
+		
+		button3.style.display = "initial";
+		
+		button3.onclick = function() {
+		
+		initialize();
+		
+		}
+		
+	} else {
+		
+		button3.style.display = "none";
+		
+	}
+	
+}
+
+function displayArrayValues(numberExists) {
 	
 	switch (getLevel()) {
 		
@@ -132,36 +178,43 @@ function showArrayValues(numberExists) {
 			setSecretNumber(numberExists, 0);
 			htmlArrayOutput(cardArray1);
 			setLevel(); // 2
+			displayButtons(true, true, false);
 			break;
 		case 2:
 			setSecretNumber(numberExists, Number(cardArray1[0]));
 			htmlArrayOutput(cardArray2);
 			setLevel(); // 3
+			displayButtons(true, true, false);
 			break;
 		case 3:
 			setSecretNumber(numberExists, Number(cardArray2[0]));
 			htmlArrayOutput(cardArray3);
 			setLevel(); // 4
+			displayButtons(true, true, false);
 			break;
 		case 4:
 			setSecretNumber(numberExists, Number(cardArray3[0]));
 			htmlArrayOutput(cardArray4);
 			setLevel(); // 5
+			displayButtons(true, true, false);
 			break;
 		case 5:
 			setSecretNumber(numberExists, Number(cardArray4[0]));
 			htmlArrayOutput(cardArray5);
 			setLevel(); // 6
+			displayButtons(true, true, false);
 			break;
 		case 6:
 			setSecretNumber(numberExists, Number(cardArray5[0]));
 			htmlArrayOutput(cardArray6);
 			setLevel(); // 7
+			displayButtons(true, true, false);
 			break;
 		case 7:
 			setSecretNumber(numberExists, Number(cardArray6[0]));
 			htmlElement.innerHTML = `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`;
 			setLevel(); // 1
+			displayButtons(false, false, true);
 			
 	}
 	
