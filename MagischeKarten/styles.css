@@ -1,24 +1,38 @@
 body {
 	
 	background-color: #ffffff;
+    font-family: georgia;
 	
 }
 
-h1 {
+pre {
 	
-	color: blue;
-	
+    font-family: georgia;
+	white-space: pre;
+    margin: 1em 0;
+    
 }
 
 label {
 	
 	width: 10em;
-	display: block;
+	display: label;
 	
 }
 
 button {
 	
-	display: block;
+	display: button;
 	
+}
+
+table {
+	
+    background-color: #f1f1c1;
+    border: 1px solid black;
+    border-spacing: 5px;
+	height: 120px;
+	width: 120px;
+	text-align: center;
+    
 }

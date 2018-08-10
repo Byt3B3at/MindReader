@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8" />
-	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-	<title>Magische Karten</title>
-	<link href="styles.css" media="screen" rel="stylesheet" /><script src='script.js'></script>
-	<meta content="magisch, kartenspiel, zaubertrick" name="keywords" />
-	<meta content="Magisches Kartenspiel&#10;Du denkst Dir eine Zahl aus und ich sage Dir welche Du Dir ausgedacht hast.&#10;Um das zu koennen, zeige ich Dir 6 Karten und du sagst mir, ob die Zahl dabei ist." name="description" />
-	<meta content="Marcus Freund" name="author" />
-	<meta content="Marcus Freund" name="copyright" />
-</head>
-<body dir="ltr">
-<div align="center" id="cardOutput">
-<table align="center" border="1" cellpadding="1" cellspacing="1" id="showCards" style="width: 100px; height: 100px;">
-	<tbody>
-		<tr>
-			<td>&nbsp;</td>
-		</tr>
-	</tbody>
-</table>
 
-<p><button id="buttonYes" type="button">Ja</button><button id="buttonNo" type="button">Nein</button></p>
+<head>
+	<meta charset='utf-8' />
+	<meta content='width=device-width, initial-scale=1.0' name='viewport' />
+	<title>Magische Karten</title>
+	<link href='styles.css' media='screen' rel='stylesheet' /><script src='script.js'></script>
+	<meta content='magisch, kartenspiel, zaubertrick' name='keywords' />
+	<meta content='Magisches Kartenspiel&#10;Du denkst Dir eine Zahl aus und ich sage Dir welche Du Dir ausgedacht hast.&#10;Um das zu koennen, zeige ich Dir 6 Karten und du sagst mir, ob die Zahl dabei ist.' name='description' />
+	<meta content='Marcus Freund' name='author' />
+	<meta content='Marcus Freund' name='copyright' />
+</head>
+
+<body dir='ltr'>
+
+<div align='center' id='textOutputArea'>
+	<h2 style='font-style: italic;'>Magische Karten</h2>
+	<pre>
+	Denke Dir bitte eine Zahl aus und sage mir, ob sie auf der unteren Karte
+	sowie den folgenden Karten vorkommt. Ich werde Dir am Ende sagen, welche Zahl Du Dir ausgedacht hast!
+	</pre>
 </div>
+
+<div align='center' id='cardOutputArea'>
+	<table id='showCards'></table>
+</div>
+
+<div align='center' id='buttonArea'>
+	<p>
+	<button id='buttonYes' type='button'>Ja</button>
+	<button id='buttonNo' type='button'>Nein</button>
+	</p>
+</div>
+
 </body>
 </html>
