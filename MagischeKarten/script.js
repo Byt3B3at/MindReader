@@ -99,8 +99,7 @@ const cardArray6 = [
 
 function initialize() {
 	
-	const version = '1.20';
-	console.log(`@initialize(): version: ${version}`);
+	console.log(`Initializing..`);
 	
 	htmlElement = document.getElementById('showCards');
 	
@@ -116,15 +115,15 @@ function initialize() {
 
 function displayButtons(showButton1, showButton2, showButton3) {
 	
-	var button1 = document.getElementById('buttonYes');
-	var button2 = document.getElementById('buttonNo');
-	var button3 = document.getElementById('buttonAgain');
+	var buttonYesElement = document.getElementById('buttonYes');
+	var buttonNoElement = document.getElementById('buttonNo');
+	var buttonAgainElement = document.getElementById('buttonAgain');
 	
 	if (showButton1) {
 		
-		button1.style.display = "initial";
+		buttonYesElement.style.display = "initial";
 		
-		button1.onclick = function() {
+		buttonYesElement.onclick = function() {
 		
 		displayArrayValues(true);
 		
@@ -132,31 +131,31 @@ function displayButtons(showButton1, showButton2, showButton3) {
 		
 	} else {
 		
-		button1.style.display = "none";
+		buttonYesElement.style.display = "none";
 		
 	}
 	
 	if (showButton2) {
 		
-		button2.style.display = "initial";
+		buttonNoElement.style.display = "initial";
 		
-		button2.onclick = function() {
+		buttonNoElement.onclick = function() {
 		
-		displayArrayValues(true);
+		displayArrayValues(false);
 		
 		}
 		
 	} else {
 		
-		button2.style.display = "none";
+		buttonNoElement.style.display = "none";
 		
 	}
 	
 	if (showButton3) {
 		
-		button3.style.display = "initial";
+		buttonAgainElement.style.display = "initial";
 		
-		button3.onclick = function() {
+		buttonAgainElement.onclick = function() {
 		
 		initialize();
 		
@@ -164,7 +163,7 @@ function displayButtons(showButton1, showButton2, showButton3) {
 		
 	} else {
 		
-		button3.style.display = "none";
+		buttonAgainElement.style.display = "none";
 		
 	}
 	
@@ -175,7 +174,6 @@ function displayArrayValues(numberExists) {
 	switch (getLevel()) {
 		
 		case 1:
-			setSecretNumber(numberExists, 0);
 			htmlArrayOutput(cardArray1);
 			setLevel(); // 2
 			displayButtons(true, true, false);
@@ -218,6 +216,8 @@ function displayArrayValues(numberExists) {
 			
 	}
 	
+	alert(secretNumber);
+	
 }
 
 function getLevel() {
@@ -236,7 +236,7 @@ function setLevel() {
 
 function getSecretNumber() {
 	
-	//console.log(`@getSecretNumber(): secretNumber = ${secretNumber}`);
+	console.log(`@getSecretNumber(): secretNumber = ${secretNumber}`);
 	
 	return secretNumber;	
 	
