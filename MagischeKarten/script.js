@@ -10,186 +10,210 @@
  *
  * @author Marcus Freund
  * @date 2018-08-06
- * @version 1.05
+ * @version 1.10
  */
-
-const cardArray1 = [
-	
-	1, 3, 5, 7, 
-	9, 11, 13, 15, 
-	17, 19, 21, 23, 
-	25, 27, 29, 31, 
-	33, 35, 37, 39, 
-	41, 43, 45, 47, 
-	49, 51, 53, 55, 
-	57, 59, 61, 63
-	
-	];
-
-const cardArray2 = [
-	
-	2, 3, 6, 7, 
-	10, 11, 14, 15, 
-	18, 19, 22, 23, 
-	26, 27, 30, 31, 
-	34, 35, 38, 39, 
-	42, 43, 46, 47, 
-	50, 51, 54, 55, 
-	58, 59, 62, 63	
-	
-	];
-
-const cardArray3 = [
-	
-	4, 5, 6, 7, 
-	12, 13, 14, 15, 
-	20, 21, 22, 23, 
-	28, 29, 30, 31, 
-	36, 37, 38, 39, 
-	44, 45, 46, 47, 
-	52, 53, 54, 55, 
-	60, 61, 62, 63	
-	
-	];
-
-const cardArray4 = [
-	
-	8, 9, 10, 11, 
-	12, 13, 14, 15, 
-	24, 25, 26, 27, 
-	28, 29, 30, 31, 
-	40, 41, 42, 43, 
-	44, 45, 46, 47, 
-	56, 57, 58, 59, 
-	60, 61, 62, 63
-	
-	];
-
-const cardArray5 = [
-	
-	16, 17, 18, 19, 
-	20, 21, 22, 23, 
-	24, 25, 26, 27, 
-	28, 29, 30, 31, 
-	48, 49, 50, 51, 
-	52, 53, 54, 55, 
-	56, 57, 58, 59, 
-	60, 61, 62, 63
-	
-	];
-
-const cardArray6 = [
-	
-	32, 33, 34, 35, 
-	36, 37, 38, 39, 
-	40, 41, 42, 43, 
-	44, 45, 46, 47, 
-	48, 49, 50, 51, 
-	52, 53, 54, 55, 
-	56, 57, 58, 59, 
-	60, 61, 62, 63
-	
-	];
 
 window.onload = function loadGame() {
 	
 	initialize();
 	
-	//console.log(`@loadGame(): cardArray1: ${cardArray1}`);
-	//console.log(`@loadGame(): cardArray2: ${cardArray2}`);
-	//console.log(`@loadGame(): cardArray3: ${cardArray3}`);
-	//console.log(`@loadGame(): cardArray4: ${cardArray4}`);
-	//console.log(`@loadGame(): cardArray5: ${cardArray5}`);
-	//console.log(`@loadGame(): cardArray6: ${cardArray6}`);
-	
 }
+
+const cardArray1 = [
+	
+	'01', '03', '05', '07',
+	'09', '11', '13', '15',
+	'17', '19', '21', '23',
+	'25', '27', '29', '31',
+	'33', '35', '37', '39',
+	'41', '43', '45', '47',
+	'49', '51', '53', '55',
+	'57', '59', '61', '63'
+	
+	];
+
+const cardArray2 = [
+	
+	'02', '03', '06', '07',
+	'10', '11', '14', '15',
+	'18', '19', '22', '23',
+	'26', '27', '30', '31',
+	'34', '35', '38', '39',
+	'42', '43', '46', '47',
+	'50', '51', '54', '55',
+	'58', '59', '62', '63'
+	
+	];
+
+const cardArray3 = [
+	
+	'04', '05', '06', '07',
+	'12', '13', '14', '15',
+	'20', '21', '22', '23',
+	'28', '29', '30', '31',
+	'36', '37', '38', '39',
+	'44', '45', '46', '47',
+	'52', '53', '54', '55',
+	'60', '61', '62', '63'
+	
+	];
+
+const cardArray4 = [
+	
+	'08', '09', '10', '11',
+	'12', '13', '14', '15',
+	'24', '25', '26', '27',
+	'28', '29', '30', '31',
+	'40', '41', '42', '43',
+	'44', '45', '46', '47',
+	'56', '57', '58', '59',
+	'60', '61', '62', '63'
+	
+	];
+
+const cardArray5 = [
+	
+	'16', '17', '18', '19',
+	'20', '21', '22', '23',
+	'24', '25', '26', '27',
+	'28', '29', '30', '31',
+	'48', '49', '50', '51',
+	'52', '53', '54', '55',
+	'56', '57', '58', '59',
+	'60', '61', '62', '63'
+	
+	];
+
+const cardArray6 = [
+	
+	'32', '33', '34', '35',
+	'36', '37', '38', '39',
+	'40', '41', '42', '43',
+	'44', '45', '46', '47',
+	'48', '49', '50', '51',
+	'52', '53', '54', '55',
+	'56', '57', '58', '59',
+	'60', '61', '62', '63'
+	
+	];
 
 function initialize() {
 	
-	const version = 105;
+	const version = '1.10';
 	console.log(`@initialize(): version: ${version}`);
 	
-	var level = 1;
-	//console.log(`@getCardArrayValues(): level: ${level}`);
+	htmlElement = document.getElementById('showCards');
 	
-	var sumFirstNumbers = 0;
-	var secretNumber = 0;
+	level = 1;
+	secretNumber = 0;
 	
-	htmlOutput(cardArray1);
-	level++;
+	htmlArrayOutput(cardArray1);
+	setLevel(); // 2
 	
 	var button1 = document.getElementById('buttonYes').onclick = function() {
 		
-		getCardArrayValues(true);
+		showArrayValues(true);
 		
 	};
 	
 	var button2 = document.getElementById('buttonNo').onclick = function() {
 		
-		getCardArrayValues(false);
+		showArrayValues(false);
 		
 	};
 	
-	function getCardArrayValues(numberExists) {
+}
+
+function showArrayValues(numberExists) {
+	
+	switch (getLevel()) {
 		
-		//console.log(`@getCardArrayValues(): level: ${level}`);
-		
-		switch (level) {
+		case 1:
+			setSecretNumber(numberExists, 0);
+			htmlArrayOutput(cardArray1);
+			setLevel(); // 2
+			break;
+		case 2:
+			setSecretNumber(numberExists, Number(cardArray1[0]));
+			htmlArrayOutput(cardArray2);
+			setLevel(); // 3
+			break;
+		case 3:
+			setSecretNumber(numberExists, Number(cardArray2[0]));
+			htmlArrayOutput(cardArray3);
+			setLevel(); // 4
+			break;
+		case 4:
+			setSecretNumber(numberExists, Number(cardArray3[0]));
+			htmlArrayOutput(cardArray4);
+			setLevel(); // 5
+			break;
+		case 5:
+			setSecretNumber(numberExists, Number(cardArray4[0]));
+			htmlArrayOutput(cardArray5);
+			setLevel(); // 6
+			break;
+		case 6:
+			setSecretNumber(numberExists, Number(cardArray5[0]));
+			htmlArrayOutput(cardArray6);
+			setLevel(); // 7
+			break;
+		case 7:
+			setSecretNumber(numberExists, Number(cardArray6[0]));
+			htmlElement.innerHTML = `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`;
+			setLevel(); // 1
 			
-			case 1:
-				htmlOutput(cardArray1);
-				level++;
-				break;
-			case 2:
-				sumFirstNumbers = numberExists ? sumFirstNumbers + cardArray1[0] : sumFirstNumbers;
-				//console.log(`@getCardArrayValues(): sumFirstNumbers: ${sumFirstNumbers}`);
-				htmlOutput(cardArray2);
-				level++;
-				break;
-			case 3:
-				sumFirstNumbers = numberExists ? sumFirstNumbers + cardArray2[0] : sumFirstNumbers;
-				//console.log(`@getCardArrayValues(): sumFirstNumbers: ${sumFirstNumbers}`);
-				htmlOutput(cardArray3);
-				level++;
-				break;
-			case 4:
-				sumFirstNumbers = numberExists ? sumFirstNumbers + cardArray3[0] : sumFirstNumbers;
-				//console.log(`@getCardArrayValues(): sumFirstNumbers: ${sumFirstNumbers}`);
-				htmlOutput(cardArray4);
-				level++;
-				break;
-			case 5:
-				sumFirstNumbers = numberExists ? sumFirstNumbers + cardArray4[0] : sumFirstNumbers;
-				//console.log(`@getCardArrayValues(): sumFirstNumbers: ${sumFirstNumbers}`);
-				htmlOutput(cardArray5);
-				level++;
-				break;
-			case 6:
-				sumFirstNumbers = numberExists ? sumFirstNumbers + cardArray5[0] : sumFirstNumbers;
-				//console.log(`@getCardArrayValues(): sumFirstNumbers: ${sumFirstNumbers}`);
-				htmlOutput(cardArray6);
-				level++;
-				break;
-			case 7:
-				sumFirstNumbers = numberExists ? sumFirstNumbers + cardArray6[0] : sumFirstNumbers;
-				//console.log(`@getCardArrayValues(): sumFirstNumbers: ${sumFirstNumbers}`);
-				secretNumber = sumFirstNumbers;
-				//console.log(`@getCardArrayValues(): secretNumber: ${secretNumber}`);
-				document.getElementById('showCards').innerHTML =
-					`Du hast Dir die Zahl ${secretNumber} ausgedacht!`;
-				level = 1;
-				sumFirstNumbers = 0;
-				secretNumber = 0;
-				
-		}
+	}
+	
+}
+
+function getLevel() {
+	
+	//console.log(`@getLevel(): level: ${level}`);
+	
+	return level;	
+	
+}
+
+function setLevel() {
+	
+	return level = (level < 7) ? (level + 1) : 1;	
+	
+}
+
+function getSecretNumber() {
+	
+	//console.log(`@getSecretNumber(): secretNumber = ${secretNumber}`);
+	
+	return secretNumber;	
+	
+}
+
+function setSecretNumber(numberExists, number) {
+	
+	if (numberExists && (number > 0)) {
+		
+		return secretNumber = secretNumber + number;
+		
+	} else if (!numberExists && (number > 0)) {
+		
+		return secretNumber;
+		
+	} else {
+		
+		return secretNumber = 0;
 		
 	}
 	
 }
 
-function sortedArrayString(array) {
+function htmlArrayOutput(input) {
 	
-	array.sort(sortNumber);
+	return htmlElement.innerHTML = input.join(", ");
+	
+}
+
+function sortArray(array) {
 	
 	function sortNumber(a, b) {
 		
@@ -197,12 +221,10 @@ function sortedArrayString(array) {
 	    
 	}
 	
-	return outputString = array.join(", ");
+	array.sort(sortNumber);
 	
-}
-
-function htmlOutput(input) {
+	//console.log(`'${array.join("', '")}'`); // Hochkomma um die Array-Werte
 	
-	return document.getElementById('showCards').innerHTML = input.join(", ");
+	return array.join(", ");
 	
 }
