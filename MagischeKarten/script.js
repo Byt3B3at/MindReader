@@ -99,15 +99,12 @@ const cardArray6 = [
 
 function initialize() {
 	
-	console.log(`Initializing..`);
-	
 	htmlElement = document.getElementById('showCards');
 	
 	level = 1;
 	secretNumber = 0;
 	
-	htmlArrayOutput(cardArray1);
-	setLevel(); // 2
+	displayArrayValues(false);
 	
 	displayButtons(true, true, false);
 	
@@ -157,7 +154,7 @@ function displayButtons(showButton1, showButton2, showButton3) {
 		
 		buttonAgainElement.onclick = function() {
 		
-		initialize();
+		displayArrayValues(false);
 		
 		}
 		
@@ -174,6 +171,7 @@ function displayArrayValues(numberExists) {
 	switch (getLevel()) {
 		
 		case 1:
+			setSecretNumber(numberExists, 0);
 			htmlArrayOutput(cardArray1);
 			setLevel(); // 2
 			displayButtons(true, true, false);
@@ -215,8 +213,6 @@ function displayArrayValues(numberExists) {
 			displayButtons(false, false, true);
 			
 	}
-	
-	alert(secretNumber);
 	
 }
 
