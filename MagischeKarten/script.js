@@ -10,7 +10,7 @@
  *
  * @author Marcus Freund
  * @date 2018-08-06
- * @version 1.10
+ * @version 1.30
  */
 
 window.onload = function loadGame() {
@@ -99,10 +99,14 @@ const cardArray6 = [
 
 function initialize() {
 	
+	LOGGING_ENABLED = false;
+	EXPERIMENTAL_FEATURES_ENABLED = false;
+	
 	htmlElement = document.getElementById('showCards');
 	
 	level = 1;
 	secretNumber = 0;
+	arrayCollection = [];
 	
 	displayArrayValues(false);
 	
@@ -121,9 +125,9 @@ function displayButtons(showButton1, showButton2, showButton3) {
 		buttonYesElement.style.display = "initial";
 		
 		buttonYesElement.onclick = function() {
-		
-		displayArrayValues(true);
-		
+			
+			displayArrayValues(true);
+			
 		}
 		
 	} else {
@@ -137,9 +141,9 @@ function displayButtons(showButton1, showButton2, showButton3) {
 		buttonNoElement.style.display = "initial";
 		
 		buttonNoElement.onclick = function() {
-		
-		displayArrayValues(false);
-		
+			
+			displayArrayValues(false);
+			
 		}
 		
 	} else {
@@ -153,9 +157,15 @@ function displayButtons(showButton1, showButton2, showButton3) {
 		buttonAgainElement.style.display = "initial";
 		
 		buttonAgainElement.onclick = function() {
-		
-		displayArrayValues(false);
-		
+			
+			if (LOGGING_ENABLED) {
+				
+				console.clear();
+				
+			}
+			
+			displayArrayValues(false);
+			
 		}
 		
 	} else {
@@ -166,49 +176,57 @@ function displayButtons(showButton1, showButton2, showButton3) {
 	
 }
 
-function displayArrayValues(numberExists) {
+function displayArrayValues(userInput) {
 	
 	switch (getLevel()) {
 		
 		case 1:
-			setSecretNumber(numberExists, 0);
+			setSecretNumber(userInput, null);
 			htmlArrayOutput(cardArray1);
 			setLevel(); // 2
 			displayButtons(true, true, false);
 			break;
 		case 2:
-			setSecretNumber(numberExists, Number(cardArray1[0]));
+	        setSecretNumber(userInput, cardArray1);
 			htmlArrayOutput(cardArray2);
 			setLevel(); // 3
 			displayButtons(true, true, false);
 			break;
 		case 3:
-			setSecretNumber(numberExists, Number(cardArray2[0]));
+			setSecretNumber(userInput, cardArray2);
 			htmlArrayOutput(cardArray3);
 			setLevel(); // 4
 			displayButtons(true, true, false);
 			break;
 		case 4:
-			setSecretNumber(numberExists, Number(cardArray3[0]));
+			setSecretNumber(userInput, cardArray3);
 			htmlArrayOutput(cardArray4);
 			setLevel(); // 5
 			displayButtons(true, true, false);
 			break;
 		case 5:
-			setSecretNumber(numberExists, Number(cardArray4[0]));
+			setSecretNumber(userInput, cardArray4);
 			htmlArrayOutput(cardArray5);
 			setLevel(); // 6
 			displayButtons(true, true, false);
 			break;
 		case 6:
-			setSecretNumber(numberExists, Number(cardArray5[0]));
+			setSecretNumber(userInput, cardArray5);
 			htmlArrayOutput(cardArray6);
 			setLevel(); // 7
 			displayButtons(true, true, false);
 			break;
 		case 7:
-			setSecretNumber(numberExists, Number(cardArray6[0]));
-			htmlElement.innerHTML = `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`;
+			setSecretNumber(userInput, cardArray6);
+			if (getSecretNumber() > 0) {
+				
+				htmlElement.innerHTML = `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`;
+				
+			} else {
+				
+				htmlElement.innerHTML = `Warum so geheimnisvoll?`;
+				
+			}
 			setLevel(); // 1
 			displayButtons(false, false, true);
 			
@@ -218,9 +236,13 @@ function displayArrayValues(numberExists) {
 
 function getLevel() {
 	
-	//console.log(`@getLevel(): level: ${level}`);
+	if (LOGGING_ENABLED) {
+		
+		console.log(`@getLevel(): level: ${level}`);
+		
+	}
 	
-	return level;	
+	return level;
 	
 }
 
@@ -230,29 +252,98 @@ function setLevel() {
 	
 }
 
+function getArrayCollection() {
+	
+	if (LOGGING_ENABLED) {
+		
+		console.log(`@getArrayCollection(): arrayCollection: ${arrayCollection}`);
+	
+	}
+	
+	return arrayCollection;
+	
+}
+
+function setArrayCollection(array) {
+	
+	return (array != null) ? arrayCollection.push(array) : arrayCollection = [];	
+	
+}
+
 function getSecretNumber() {
 	
-	console.log(`@getSecretNumber(): secretNumber = ${secretNumber}`);
+	if (LOGGING_ENABLED) {
+		
+		console.log(`@getSecretNumber(): secretNumber = ${secretNumber}`);
+	}
 	
 	return secretNumber;	
 	
 }
 
-function setSecretNumber(numberExists, number) {
+function setSecretNumber(userInputYes, array) {
 	
-	if (numberExists && (number > 0)) {
+	if (array !== null) {
 		
-		return secretNumber = secretNumber + number;
+		if (userInputYes) {
+			
+			if (EXPERIMENTAL_FEATURES_ENABLED) {
+				
+				if (getArrayCollection().length > 0) {
+					
+					if (isValidUserInput(array)) {
+						
+						setArrayCollection(array);
+						
+						return secretNumber = getSecretNumber() + (Number(array[0]));
+						
+					}
+					
+					return getSecretNumber();
+					
+				}
+			
+			}
+			
+			setArrayCollection(array);
+			
+			return secretNumber = getSecretNumber() + (Number(array[0]));
+			
+		}
 		
-	} else if (!numberExists && (number > 0)) {
-		
-		return secretNumber;
-		
-	} else {
-		
-		return secretNumber = 0;
+		return getSecretNumber();
 		
 	}
+	
+	setArrayCollection(null);
+	
+	return secretNumber = 0;
+	
+}
+
+function isValidUserInput(array) {
+	
+	var temp = [];
+	
+    arr1 = getArrayCollection().toString().split(',').map(Number);
+    arr2 = array.toString().split(',').map(Number);
+    
+    for (var i in arr1) {
+    	
+    	if (arr2.includes(arr1[i])) {
+    		
+        	temp.push(arr1[i]);
+    		
+    	}
+    	
+    }
+    
+	if (LOGGING_ENABLED) {
+		
+		console.log(`@isValidUserInput(): temp = ${temp}`);
+	}
+	
+	return temp !== [];
 	
 }
 
@@ -272,7 +363,10 @@ function sortArray(array) {
 	
 	array.sort(sortNumber);
 	
-	//console.log(`'${array.join("', '")}'`); // Hochkomma um die Array-Werte
+	if (LOGGING_ENABLED) {
+		
+		console.log(`'${array.join("', '")}'`); // Hochkomma um die Array-Werte
+	}
 	
 	return array.join(", ");
 	
