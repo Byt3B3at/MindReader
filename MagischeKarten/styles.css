@@ -1,31 +1,102 @@
+.text--line {
+    font-family: georgia;
+    font-size: 3em;
+}
+
+.text--line2 {
+    font-family: georgia;
+    font-size: 2.5em;
+}
+
+svg {
+    padding: 0px 0;
+    display: flex;
+    width: auto;
+    height: 100px;
+    margin: auto;
+}
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 7% 28%;
+    stroke-width: 2px;
+    -moz-animation: stroke-offset 9s infinite linear;
+    -webkit-animation: stroke-offset 9s infinite linear;
+    -o-animation: stroke-offset 9s infinite linear;
+    animation: stroke-offset 9s infinite linear;
+}
+
+.text-copy:nth-child(1) {
+    stroke: #360745;
+    stroke-dashoffset: 7%;
+}
+
+.text-copy:nth-child(2) {
+    stroke: #D61C59;
+    stroke-dashoffset: 14%;
+}
+
+.text-copy:nth-child(3) {
+    stroke: #E7D84B;
+    stroke-dashoffset: 21%;
+}
+
+.text-copy:nth-child(4) {
+    stroke: #EFEAC5;
+    stroke-dashoffset: 28%;
+}
+
+.text-copy:nth-child(5) {
+    stroke: #1B8798;
+    stroke-dashoffset: 35%;
+}
+
+/*TODO: Autoformatierung anpassen, dass nach dem @ kein Umbruch mehr erfolgt*/
+@-webkit-keyframes stroke-offset { 50% {
+    stroke-dashoffset: 35%;
+    stroke-dasharray: 0 87.5%;
+}
+
+}
+
+/*TODO: Autoformatierung anpassen, dass nach dem @ kein Umbruch mehr erfolgt*/
+@keyframes stroke-offset { 50% {
+    stroke-dashoffset: 35%;
+    stroke-dasharray: 0 87.5%;
+}
+
+}
+
 .magicCards {
     font-family: georgia;
 }
 
-h1, h2, h3 {
-    padding: 0px 0;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
-    height: auto;
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
-}
-
 .textArea {
-    padding: 5px 0;
+    padding: 10px 0;
     word-wrap: break-word;
 }
 
-#exercise {
+#exerciseIntro, #exerciseNote {
     text-align: center;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.5;
     height: auto;
     width: 100%;
-    max-width: 400px;
+    max-width: 250px;
+    margin: auto;
+}
+
+#exerciseQuestion {
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.5;
+    height: auto;
+    width: 100%;
+    max-width: 220px;
     margin: auto;
 }
 
@@ -34,15 +105,14 @@ h1, h2, h3 {
 }
 
 #showCards {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
-        rgba(0, 0, 0, 0.19);
+    box-shadow: 7px 7px 11px 2px rgba(0, 0, 51, 0.82);
     background: url(paper.gif);
     background-position: right bottom, left top;
     background-repeat: repeat;
     border: 2px solid black;
     border-radius: 8px;
     border-spacing: 10px 10px;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
     text-decoration: none;
     line-height: 1.4;
@@ -53,17 +123,16 @@ h1, h2, h3 {
 }
 
 .buttonArea {
-    padding: 10px 0;
+    padding: 0px 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .button {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
-        rgba(0, 0, 0, 0.19);
+    box-shadow: 7px 7px 11px 2px rgba(0, 0, 51, 0.72);
     border-radius: 8px;
-    background-color: #0080ff;
+    background-color: #004080;
     border: none;
     color: white;
     font-size: 14px;

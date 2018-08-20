@@ -1,45 +1,114 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset='utf-8' />
-<meta content='width=device-width, initial-scale=1.0' name='viewport' />
-<title>Magische Karten</title>
-<link href='styles.css' media='screen' rel='stylesheet' />
-<script src='script.js'></script>
-<meta content='magisch, kartenspiel, zaubertrick' name='keywords' />
 <meta
-    content='Magisches Kartenspiel&#10;Du denkst Dir eine Zahl zwischen 1 und 63 aus und ich sage Dir welche Zahl Du Dir ausgedacht hast.'
-    name='description' />
-<meta content='Marcus Freund' name='author' />
-<meta content='Marcus Freund' name='copyright' />
+    content='width=device-width, initial-scale=1.0'
+    name='viewport'
+/>
+<title>Magische Karten</title>
+<link
+    href='styles.css'
+    media='screen'
+    rel='stylesheet'
+/>
+<script src='script.js'></script>
+<meta
+    content='magisch, kartenspiel, zaubertrick'
+    name='keywords'
+/>
+<meta
+    content='Magisches Kartenspiel&#10;Bei dem Spiel errate ich eine von Dir ausgedachte Zahl!'
+    name='description'
+/>
+<meta
+    content='Marcus Freund'
+    name='author'
+/>
+<meta
+    content='Marcus Freund'
+    name='copyright'
+/>
 </head>
-
 <body>
-
+    <svg>
+  <symbol id="s-text">
+    <text
+            text-anchor="middle"
+            x="50%"
+            y="40%"
+            class="text--line"
+        >
+      Magische
+    </text>
+    <text
+            text-anchor="middle"
+            x="50%"
+            y="85%"
+            class="text--line2"
+        >
+      Karten
+    </text>
+  </symbol>
+  
+  <g class="g-ants">
+    <use
+            xlink:href="#s-text"
+            class="text-copy"
+        ></use>     
+    <use
+            xlink:href="#s-text"
+            class="text-copy"
+        ></use>     
+    <use
+            xlink:href="#s-text"
+            class="text-copy"
+        ></use>     
+    <use
+            xlink:href="#s-text"
+            class="text-copy"
+        ></use>     
+    <use
+            xlink:href="#s-text"
+            class="text-copy"
+        ></use>     
+  </g>
+</svg>
     <div class='magicCards'>
-        <h1>Magische Karten</h1>
-
         <div class='textArea'>
-            <p id='exercise'>Denke Dir bitte eine Zahl zwischen 1 und 63 aus
-                und antworte mit 'ja' oder 'nein', ob sie auf der unteren Karte
-                sowie den folgenden Karten vorkommt. Am Ende werde ich Dir sagen,
-                welche Zahl Du Dir ausgedacht hast!</p>
+            <p id='exerciseIntro'><b>Denke Dir bitte eine Zahl zwischen 1
+                und 63 aus</b> und suche Deine ausgedachte Zahl auf der
+                unten abgebildeten Karte sowie den folgenden Karten:</p>
+            <p id='exerciseNote'>(insgesamt 6 Karten)</p>
         </div>
-
         <div class='tableArea'>
             <table id='showCards'></table>
         </div>
-
+        <div class='textArea'>
+            <p id='exerciseQuestion'>Ist Deine ausgedachte Zahl auf der
+                obigen Karte dabei?</p>
+        </div>
         <div class='buttonArea'>
-            <button class='button' id='buttonYes' type='button'>
+            <button
+                class='button'
+                id='buttonYes'
+                type='button'
+            >
                 <span>Ja </span>
             </button>
             &nbsp;&nbsp;&nbsp;
-            <button class='button' id='buttonNo' type='button'>
+            <button
+                class='button'
+                id='buttonNo'
+                type='button'
+            >
                 <span>Nein </span>
             </button>
-            <button class='button' id='buttonAgain' type='button'>
+            <button
+                class='button'
+                id='buttonAgain'
+                type='button'
+            >
                 <span>Nochmal! </span>
             </button>
         </div>
