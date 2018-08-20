@@ -2,34 +2,47 @@
 <html>
 
 <head>
-	<meta charset='utf-8' />
-	<meta content='width=device-width, initial-scale=1.0' name='viewport' />
-	<title>Magische Karten</title>
-	<link href='styles.css' media='screen' rel='stylesheet' /><script src='script.js'></script>
-	<meta content='magisch, kartenspiel, zaubertrick' name='keywords' />
-	<meta content='Magisches Kartenspiel&#10;Du denkst Dir eine Zahl zwischen 1 und 63 aus und ich sage Dir welche Zahl Du Dir ausgedacht hast.' name='description' />
-	<meta content='Marcus Freund' name='author' />
-	<meta content='Marcus Freund' name='copyright' />
+<meta charset='utf-8' />
+<meta content='width=device-width, initial-scale=1.0' name='viewport' />
+<title>Magische Karten</title>
+<link href='styles.css' media='screen' rel='stylesheet' />
+<script src='script.js'></script>
+<meta content='magisch, kartenspiel, zaubertrick' name='keywords' />
+<meta
+    content='Magisches Kartenspiel&#10;Du denkst Dir eine Zahl zwischen 1 und 63 aus und ich sage Dir welche Zahl Du Dir ausgedacht hast.'
+    name='description' />
+<meta content='Marcus Freund' name='author' />
+<meta content='Marcus Freund' name='copyright' />
 </head>
 
-<body dir='ltr'>
-	
-	<h1 style='font-style: italic;'>Magische Karten</h1>
-	
-	<p id='textOutputArea'>
-		Denke Dir bitte eine Zahl zwischen 1 und 63 aus und antworte mit "ja" oder "nein", ob sie auf der unteren Karte<br>
-		sowie den folgenden Karten vorkommt. Am Ende werde ich Dir sagen, welche Zahl Du Dir ausgedacht hast!
-	</p>
-	
-    <table id='showCards' align='center'></table>
-	
-	<p></p>
-	
-	<div align='center'>
-		<button class='button' id='buttonYes' type='button'>Ja</button>&nbsp;&nbsp;&nbsp;
-		<button class='button' id='buttonNo' type='button'>Nein</button>
-		<button class='button' id='buttonAgain' type='button'>Nochmal!</button>
-	</div>
-	
+<body>
+
+    <div class='magicCards'>
+        <h1>Magische Karten</h1>
+
+        <div class='textArea'>
+            <p id='exercise'>Denke Dir bitte eine Zahl zwischen 1 und 63 aus
+                und antworte mit 'ja' oder 'nein', ob sie auf der unteren Karte
+                sowie den folgenden Karten vorkommt. Am Ende werde ich Dir sagen,
+                welche Zahl Du Dir ausgedacht hast!</p>
+        </div>
+
+        <div class='tableArea'>
+            <table id='showCards'></table>
+        </div>
+
+        <div class='buttonArea'>
+            <button class='button' id='buttonYes' type='button'>
+                <span>Ja </span>
+            </button>
+            &nbsp;&nbsp;&nbsp;
+            <button class='button' id='buttonNo' type='button'>
+                <span>Nein </span>
+            </button>
+            <button class='button' id='buttonAgain' type='button'>
+                <span>Nochmal! </span>
+            </button>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,46 +1,106 @@
-body {
-    
-    background-color: #ffffff;
+.magicCards {
     font-family: georgia;
-    
 }
 
 h1, h2, h3 {
-    
+    padding: 0px 0;
     text-align: center;
-    
+    text-decoration: none;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+    height: auto;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
 }
 
-#textOutputArea {
-    
-    text-align: center;
-    
+.textArea {
+    padding: 5px 0;
+    word-wrap: break-word;
 }
 
-table {
-    
-    background-color: #f1f1c1;
-    border: 1px solid black;
-    border-spacing: 5px;
-    height: 120px;
-    width: 120px;
+#exercise {
     text-align: center;
-    
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.5;
+    height: auto;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+.tableArea {
+    padding: 5px 0;
+}
+
+#showCards {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+        rgba(0, 0, 0, 0.19);
+    background: url(paper.gif);
+    background-position: right bottom, left top;
+    background-repeat: repeat;
+    border: 2px solid black;
+    border-radius: 8px;
+    border-spacing: 10px 10px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.4;
+    height: auto;
+    width: 100%;
+    max-width: 120px;
+    margin: auto;
+}
+
+.buttonArea {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button {
-    
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+        rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
     background-color: #0080ff;
     border: none;
     color: white;
-    padding: 10px 30px;
-    text-align: center;
     font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    height: 30px;
+    width: 100%;
+    max-width: 70px;
+    transition: all 0.5s;
     cursor: pointer;
-    
 }
 
 .button:hover {
-    
     background-color: #0000ff;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
 }
