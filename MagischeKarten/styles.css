@@ -91,7 +91,8 @@ body {
     text-decoration: none;
     line-height: 1.5;
     height: auto;
-    width: 12rem;
+    width: 11rem;
+    max-width: 11rem;
     margin: auto;
 }
 
