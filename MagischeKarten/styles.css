@@ -11,15 +11,6 @@
         U+2215, U+FEFF, U+FFFD;
 }
 
-html, body {
-    margin: 0;
-    height: 100%;
-}
-
-html {
-    font-size: 100%;
-}
-
 body {
     background-color: #29315e;
 }
@@ -29,6 +20,9 @@ body {
     display: flex;
     -webkit-box-orient: vertical;
     flex-direction: column;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
     padding: 10px;
     box-sizing: border-box;
     align-items: center;
@@ -37,10 +31,9 @@ body {
 .signWord {
     padding: 5px;
     font-family: Vibur, cursive;
-    font-size: 3.5rem;
+    font-size: 14.5vw;
     text-align: center;
     line-height: 1.5;
-    height: auto;
     color: #c6e2ff;
     -webkit-animation: neon .08s ease-in-out infinite alternate;
     animation: neon .08s ease-in-out infinite alternate;
@@ -48,18 +41,16 @@ body {
 
 .textArea {
     font-family: Georgia;
-    font-size: 1rem;
+    font-size: 3.6vw;
     color: #cccedd;
+    line-height: 1.5;
     padding: 5px;
-    word-wrap: break-word;
 }
 
 #exerciseIntro {
     text-align: center;
     text-decoration: none;
-    line-height: 1.5;
-    height: auto;
-    max-width: 19rem;
+    max-width: 76vw;
     margin: auto;
 }
 
@@ -67,9 +58,7 @@ body {
     text-align: center;
     text-decoration: none;
     font-weight: bold;
-    line-height: 1.5;
-    height: auto;
-    max-width: 15.5rem;
+    max-width: 65vw;
     margin: auto;
 }
 
@@ -78,6 +67,7 @@ body {
 }
 
 #showCards {
+    padding: 5px 5px;
     box-shadow: 7px 7px 11px 2px rgba(0, 0, 51, 0.82);
     background: url(paper.gif);
     background-position: right bottom, left top;
@@ -85,13 +75,13 @@ body {
     border: 2px solid black;
     border-radius: 8px;
     border-spacing: 10px 10px;
-    font-size: 1.1rem;
+    font-family: Verdana;
+    font-size: 4.5vw;
     color: #294b5e;
     text-align: center;
     text-decoration: none;
     line-height: 1.5;
-    height: auto;
-    width: 10.5rem;
+    width: 46vw;
     margin: auto;
 }
 
@@ -106,15 +96,15 @@ body {
     display: none;
     box-shadow: 7px 7px 11px 2px rgba(0, 0, 51, 0.72);
     font-family: Georgia;
-    font-size: 1rem;
+    font-size: 4.5vw;
     border-radius: 8px;
     background-color: #004080;
     border: none;
     color: white;
     text-align: center;
     text-decoration: none;
-    height: 35px;
-    min-width: 100%;
+    height: 10vw;
+    width: 30vw;
     cursor: pointer;
 }
 
