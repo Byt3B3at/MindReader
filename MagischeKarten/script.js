@@ -96,7 +96,7 @@ function displayButtons(showButton1, showButton2, showButton3) {
 
     if (showButton1) {
 
-        buttonYesElement.style.display = "initial";
+        buttonYesElement.style.display = "inline-block";
 
         buttonYesElement.onclick = function() {
 
@@ -112,7 +112,7 @@ function displayButtons(showButton1, showButton2, showButton3) {
 
     if (showButton2) {
 
-        buttonNoElement.style.display = "initial";
+        buttonNoElement.style.display = "inline-block";
 
         buttonNoElement.onclick = function() {
 
@@ -128,7 +128,7 @@ function displayButtons(showButton1, showButton2, showButton3) {
 
     if (showButton3) {
 
-        buttonAgainElement.style.display = "initial";
+        buttonAgainElement.style.display = "inline-block";
 
         buttonAgainElement.onclick = function() {
 
@@ -150,12 +150,26 @@ function displayButtons(showButton1, showButton2, showButton3) {
 
 }
 
+function showElemet(pElementId) {
+
+    return document.getElementById(pElementId).style.display = "block";
+
+}
+
+function hideElemet(pElementId) {
+
+    return document.getElementById(pElementId).style.display = "none";
+
+}
+
 function displayArrayValues(userInput) {
 
     switch (getLevel()) {
 
         case 1:
             setSecretNumber(userInput, null);
+            showElemet('exerciseIntro');
+            showElemet('exerciseQuestion');
             htmlArrayOutput(cardArray1);
             setLevel(); // 2
             displayButtons(true, true, false);
@@ -192,6 +206,8 @@ function displayArrayValues(userInput) {
         break;
         case 7:
             setSecretNumber(userInput, cardArray6);
+            hideElemet('exerciseIntro');
+            hideElemet('exerciseQuestion');
             if (getSecretNumber() > 0) {
 
                 htmlElement.innerHTML = `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`;

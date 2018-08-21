@@ -8,9 +8,9 @@
 />
 <title>Magische Karten</title>
 <link
+    rel='stylesheet'
     href='styles.css'
     media='screen'
-    rel='stylesheet'
 />
 <script src='script.js'></script>
 <meta
@@ -31,67 +31,29 @@
 />
 </head>
 <body>
-    <svg>
-  <symbol id="s-text">
-    <text
-            text-anchor="middle"
-            x="50%"
-            y="40%"
-            class="text--line"
-        >
-      Magische
-    </text>
-    <text
-            text-anchor="middle"
-            x="50%"
-            y="85%"
-            class="text--line2"
-        >
-      Karten
-    </text>
-  </symbol>
-  
-  <g class="g-ants">
-    <use
-            xlink:href="#s-text"
-            class="text-copy"
-        ></use>     
-    <use
-            xlink:href="#s-text"
-            class="text-copy"
-        ></use>     
-    <use
-            xlink:href="#s-text"
-            class="text-copy"
-        ></use>     
-    <use
-            xlink:href="#s-text"
-            class="text-copy"
-        ></use>     
-    <use
-            xlink:href="#s-text"
-            class="text-copy"
-        ></use>     
-  </g>
-</svg>
-    <div class='magicCards'>
+    <div class='main'>
+        <span class='signWord'>Magische Karten</span>
         <div class='textArea'>
-            <p id='exerciseIntro'><b>Denke Dir bitte eine Zahl zwischen 1
-                und 63 aus</b> und suche Deine ausgedachte Zahl auf der
-                unten abgebildeten Karte sowie den folgenden (insgesamt 6) Karten:</p>
+            <p id='exerciseIntro'>
+                <b>Denke Dir nun bitte eine Zahl zwischen 1 und 63
+                    aus</b> und beantworte mir, ob sich deine ausgedachte
+                Zahl auf der unten dargestellten Karte sowie den
+                folgenden Karten (insgesamt 6) auftaucht:
+            </p>
         </div>
         <div class='tableArea'>
             <table id='showCards'></table>
         </div>
         <div class='textArea'>
-            <p id='exerciseQuestion'>Ist Deine ausgedachte Zahl auf der
-                obigen Karte dabei?</p>
+            <p id='exerciseQuestion'>Ist Deine ausgedachte Zahl auf
+                der obigen Karte dabei?</p>
         </div>
         <div class='buttonArea'>
             <button
                 class='button'
                 id='buttonYes'
                 type='button'
+                onclick='void(0)'
             >
                 <span>Ja </span>
             </button>
@@ -100,6 +62,7 @@
                 class='button'
                 id='buttonNo'
                 type='button'
+                onclick='void(0)'
             >
                 <span>Nein </span>
             </button>
@@ -107,6 +70,7 @@
                 class='button'
                 id='buttonAgain'
                 type='button'
+                onclick='void(0)'
             >
                 <span>Nochmal! </span>
             </button>
