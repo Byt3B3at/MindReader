@@ -2,6 +2,7 @@
     font-family: 'Vibur';
     font-style: normal;
     font-weight: 400;
+    
     src: local('Vibur'),
         url(https://fonts.gstatic.com/s/vibur/v8/DPEiYwmEzw0QRgTuJDs.woff2)
         format('woff2');
@@ -24,9 +25,12 @@ body {
 }
 
 .main {
+    display: -webkit-box;
     display: flex;
+    -webkit-box-orient: vertical;
     flex-direction: column;
-    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
     align-items: center;
 }
 
@@ -55,7 +59,7 @@ body {
     text-decoration: none;
     line-height: 1.5;
     height: auto;
-    max-width: 290px;
+    max-width: 19rem;
     margin: auto;
 }
 
@@ -65,7 +69,7 @@ body {
     font-weight: bold;
     line-height: 1.5;
     height: auto;
-    max-width: 250px;
+    max-width: 15.5rem;
     margin: auto;
 }
 
@@ -81,14 +85,13 @@ body {
     border: 2px solid black;
     border-radius: 8px;
     border-spacing: 10px 10px;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #294b5e;
     text-align: center;
     text-decoration: none;
     line-height: 1.5;
     height: auto;
-    min-width: 160px;
-    max-width: 160px;
+    width: 12rem;
     margin: auto;
 }
 
