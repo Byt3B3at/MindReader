@@ -37,7 +37,7 @@ body {
 .signWord {
     padding: 5px;
     font-family: Vibur, cursive;
-    font-size: 3.7rem;
+    font-size: 3.5rem;
     text-align: center;
     line-height: 1.5;
     height: auto;
@@ -91,7 +91,7 @@ body {
     text-decoration: none;
     line-height: 1.5;
     height: auto;
-    width: 12rem;
+    width: 10.5rem;
     margin: auto;
 }
 
