@@ -14,6 +14,81 @@ body {
     background-color: #29315e;
 }
 
+@media ( min-width : 950px) {
+    /* wide browser window */
+    .signWord {
+        font-size: 5vw;
+    }
+    .textArea {
+        font-size: 1.2vw;
+    }
+    #exerciseIntro {
+        max-width: 25vw;
+    }
+    #showCards {
+        font-size: 1.4vw;
+        max-width: 10em;
+    }
+    #exerciseQuestion {
+        max-width: 18vw;
+    }
+    .button {
+        font-size: 1.2vw;
+        height: 2vw;
+        width: 5.5vw;
+    }
+}
+
+@media ( min-width : 450px) and (max-width: 950px) {
+    /* notebooks */
+    .signWord {
+        font-size: 5vw;
+    }
+    .textArea {
+        font-size: 1.2vw;
+    }
+    #exerciseIntro {
+        max-width: 25vw;
+    }
+    #showCards {
+        font-size: 1.4vw;
+        max-width: 10em;
+    }
+    #exerciseQuestion {
+        max-width: 18vw;
+    }
+    .button {
+        font-size: 1.2vw;
+        height: 2vw;
+        width: 5.5vw;
+    }
+}
+
+@media ( max-width : 450px) {
+    /* mobile devices */
+    .signWord {
+        font-size: 14vw;
+    }
+    .textArea {
+        font-size: 3.6vw;
+    }
+    #exerciseIntro {
+        max-width: 76vw;
+    }
+    #exerciseQuestion {
+        max-width: 65vw;
+    }
+    #showCards {
+        font-size: 4.5vw;
+        max-width: 10em;
+    }
+    .button {
+        font-size: 4.5vw;
+        height: 10vw;
+        width: 25vw;
+    }
+}
+
 .main {
     display: flex;
     font-family: Georgia;
@@ -23,7 +98,6 @@ body {
 
 .signWord {
     font-family: Vibur, cursive;
-    font-size: 14vw;
     color: #c6e2ff;
     line-height: 1em;
     animation: neon .08s ease-in-out infinite alternate;
@@ -32,22 +106,21 @@ body {
 
 .textArea {
     text-align: center;
-    font-size: 3.6vw;
     color: #cccedd;
     line-height: 1.3;
     margin: auto;
 }
 
 #exerciseIntro {
-    max-width: 76vw;
+    
 }
 
 #exerciseQuestion {
     font-weight: bold;
-    max-width: 65vw;
 }
 
 .tableArea {
+    
 }
 
 #showCards {
@@ -58,11 +131,9 @@ body {
     border-collapse: separate;
     border-spacing: 1em;
     font-family: Verdana;
-    font-size: 4.5vw;
     color: #294b5e;
     text-align: center;
     line-height: 1.5;
-    max-width: 10em;
     margin: auto;
 }
 
@@ -74,14 +145,11 @@ body {
 .button {
     display: none;
     box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
-    font-size: 4.5vw;
     border-radius: 0.4em;
     background-color: #004080;
     border: none;
     color: white;
     text-align: center;
-    height: 10vw;
-    width: 25vw;
     cursor: pointer;
 }
 
