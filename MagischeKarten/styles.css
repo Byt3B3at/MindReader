@@ -2,7 +2,6 @@
     font-family: 'Vibur';
     font-style: normal;
     font-weight: 400;
-    
     src: local('Vibur'),
         url(https://fonts.gstatic.com/s/vibur/v8/DPEiYwmEzw0QRgTuJDs.woff2)
         format('woff2');
@@ -16,95 +15,73 @@ body {
 }
 
 .main {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-orient: vertical;
+    font-family: Georgia;
     flex-direction: column;
-    height: auto;
-    max-height: 100%;
-    max-width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
     align-items: center;
 }
 
 .signWord {
-    padding: 5px;
     font-family: Vibur, cursive;
-    font-size: 14.5vw;
-    text-align: center;
-    line-height: 1.5;
+    font-size: 14vw;
     color: #c6e2ff;
-    -webkit-animation: neon .08s ease-in-out infinite alternate;
+    line-height: 1em;
     animation: neon .08s ease-in-out infinite alternate;
+    padding-bottom: 0.1em;
 }
 
 .textArea {
-    font-family: Georgia;
+    text-align: center;
     font-size: 3.6vw;
     color: #cccedd;
-    line-height: 1.5;
-    padding: 5px;
+    line-height: 1.3;
+    margin: auto;
 }
 
 #exerciseIntro {
-    text-align: center;
-    text-decoration: none;
     max-width: 76vw;
-    margin: auto;
 }
 
 #exerciseQuestion {
-    text-align: center;
-    text-decoration: none;
     font-weight: bold;
     max-width: 65vw;
-    margin: auto;
 }
 
 .tableArea {
-    padding: 5px;
 }
 
 #showCards {
-    padding: 5px 5px;
-    box-shadow: 7px 7px 11px 2px rgba(0, 0, 51, 0.82);
+    box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
     background: url(paper.gif);
-    background-position: right bottom, left top;
-    background-repeat: repeat;
-    border: 2px solid black;
-    border-radius: 8px;
-    border-spacing: 10px 10px;
+    border: 0.06em solid black;
+    border-radius: 0.8em;
+    border-collapse: separate;
+    border-spacing: 1em;
     font-family: Verdana;
     font-size: 4.5vw;
     color: #294b5e;
     text-align: center;
-    text-decoration: none;
     line-height: 1.5;
-    width: 42vw;
+    max-width: 10em;
     margin: auto;
 }
 
 .buttonArea {
-    padding: 5px;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .button {
     display: none;
-    box-shadow: 7px 7px 11px 2px rgba(0, 0, 51, 0.72);
-    font-family: Georgia;
+    box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
     font-size: 4.5vw;
-    border-radius: 8px;
+    border-radius: 0.4em;
     background-color: #004080;
     border: none;
     color: white;
     text-align: center;
-    text-decoration: none;
     height: 10vw;
-    width: 30vw;
+    width: 25vw;
     cursor: pointer;
 }
 
@@ -112,14 +89,6 @@ body {
     background-color: #0000ff;
 }
 
-@-webkit-keyframes neon {
-  from {
-    text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
-  }
-  to {
-    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88), 0 0 60px #1e84f2;
-  }
-}
 @keyframes neon {
   from {
     text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);

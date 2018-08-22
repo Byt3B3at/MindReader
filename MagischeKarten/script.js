@@ -3,7 +3,7 @@
  * 
  * @author Marcus Freund
  * @date 2018-08-06
- * @version 1.30
+ * @version 1.35
  * @description Diese Bibliothek stellt Funktionen zur Verfuegung, die dem
  *              Benutzer 6 verschiedene Karten mit fest vorgegebenen Zahlen
  *              ausgibt. Der Benutzer bestaetigt, auf welcher der Karten sich
@@ -96,7 +96,7 @@ function displayButtons(showButton1, showButton2, showButton3) {
 
     if (showButton1) {
 
-        buttonYesElement.style.display = "inline-block";
+        buttonYesElement.style.display = 'inline-block';
 
         buttonYesElement.onclick = function() {
 
@@ -106,13 +106,13 @@ function displayButtons(showButton1, showButton2, showButton3) {
 
     } else {
 
-        buttonYesElement.style.display = "none";
+        buttonYesElement.style.display = 'none';
 
     }
 
     if (showButton2) {
 
-        buttonNoElement.style.display = "inline-block";
+        buttonNoElement.style.display = 'inline-block';
 
         buttonNoElement.onclick = function() {
 
@@ -122,13 +122,13 @@ function displayButtons(showButton1, showButton2, showButton3) {
 
     } else {
 
-        buttonNoElement.style.display = "none";
+        buttonNoElement.style.display = 'none';
 
     }
 
     if (showButton3) {
 
-        buttonAgainElement.style.display = "inline-block";
+        buttonAgainElement.style.display = 'inline-block';
 
         buttonAgainElement.onclick = function() {
 
@@ -144,7 +144,7 @@ function displayButtons(showButton1, showButton2, showButton3) {
 
     } else {
 
-        buttonAgainElement.style.display = "none";
+        buttonAgainElement.style.display = 'none';
 
     }
 
@@ -152,13 +152,13 @@ function displayButtons(showButton1, showButton2, showButton3) {
 
 function showElemet(pElementId) {
 
-    return document.getElementById(pElementId).style.display = "block";
+    return document.getElementById(pElementId).style.visibility = 'visible';
 
 }
 
 function hideElemet(pElementId) {
 
-    return document.getElementById(pElementId).style.display = "none";
+    return document.getElementById(pElementId).style.visibility = 'hidden';
 
 }
 
@@ -339,7 +339,7 @@ function isValidUserInput(array) {
 
 function htmlArrayOutput(input) {
 
-    return htmlElement.innerHTML = input.join(", ");
+    return htmlElement.innerHTML = input.join(', ');
 
 }
 
@@ -358,6 +358,6 @@ function sortArray(array) {
         console.log(`'${array.join("', '")}'`); // Hochkomma um die Array-Werte
     }
 
-    return array.join(", ");
+    return array.join(', ');
 
 }
