@@ -27,7 +27,6 @@ body {
     }
     #showCards {
         font-size: 1.3vw;
-        max-width: 10em;
     }
     #exerciseQuestion {
         max-width: 18vw;
@@ -52,7 +51,6 @@ body {
     }
     #showCards {
         font-size: 1.4vw;
-        max-width: 10em;
     }
     #exerciseQuestion {
         max-width: 18vw;
@@ -80,7 +78,6 @@ body {
     }
     #showCards {
         font-size: 4.5vw;
-        max-width: 10em;
     }
     .button {
         font-size: 4.5vw;
