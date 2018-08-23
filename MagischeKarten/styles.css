@@ -26,7 +26,7 @@ body {
         max-width: 25vw;
     }
     #showCards {
-        font-size: 1.4vw;
+        font-size: 1.3vw;
         max-width: 10em;
     }
     #exerciseQuestion {
@@ -135,6 +135,10 @@ body {
     text-align: center;
     line-height: 1.5;
     margin: auto;
+}
+
+#showCards td {
+    line-height: 0.6;
 }
 
 .buttonArea {
