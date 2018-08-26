@@ -25,11 +25,16 @@ body {
     #exerciseIntro {
         max-width: 25vw;
     }
-    #showCards {
+    #array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table {
         font-size: 1.3vw;
     }
     #exerciseQuestion {
         max-width: 18vw;
+    }
+    #result {
+        font-size: 2.3vw;
+        line-height: 1.3;
+        max-width: 28vw;
     }
     .button {
         font-size: 1.2vw;
@@ -49,11 +54,16 @@ body {
     #exerciseIntro {
         max-width: 25vw;
     }
-    #showCards {
-        font-size: 1.4vw;
+    #array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table {
+        font-size: 1.3vw;
     }
     #exerciseQuestion {
         max-width: 18vw;
+    }
+    #result {
+        font-size: 2.3vw;
+        line-height: 1.3;
+        max-width: 28vw;
     }
     .button {
         font-size: 1.2vw;
@@ -76,8 +86,13 @@ body {
     #exerciseQuestion {
         max-width: 65vw;
     }
-    #showCards {
+    #array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table {
         font-size: 4.5vw;
+    }
+    #result {
+        font-size: 6vw;
+        line-height: 1.3;
+        max-width: 60vw;
     }
     .button {
         font-size: 4.5vw;
@@ -105,7 +120,6 @@ body {
     text-align: center;
     color: #cccedd;
     line-height: 1.3;
-    margin: auto;
 }
 
 #exerciseIntro {
@@ -120,7 +134,7 @@ body {
     
 }
 
-#showCards {
+#array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table {
     box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
     background: url(paper.gif);
     border: 0.06em solid black;
@@ -131,21 +145,25 @@ body {
     color: #294b5e;
     text-align: center;
     line-height: 1.5;
-    margin: auto;
 }
 
-#showCards td {
+#array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table td {
     line-height: 0.6;
 }
 
+#result {
+    color: #cccedd;
+    line-height: 1.3;
+    text-align: center;
+}
+
 .buttonArea {
-    justify-content: center;
-    align-items: center;
+    
 }
 
 .button {
-    display: none;
     box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
+border-spacing:10px;
     border-radius: 0.4em;
     background-color: #004080;
     border: none;

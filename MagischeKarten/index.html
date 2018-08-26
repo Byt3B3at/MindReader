@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset='utf-8' />
+<meta charset='UTF-8' />
 <meta
     content='width=device-width, initial-scale=1'
     name='viewport'
 />
-<title>Magische Karten</title>
-<link
-    rel='stylesheet'
-    href='styles.css'
-    media='screen'
-/>
-<script src='script.js'></script>
 <meta
     content='magisch, kartenspiel, zaubertrick'
     name='keywords'
@@ -29,11 +22,39 @@
     content='Marcus Freund'
     name='copyright'
 />
+<title>Magische Karten</title>
+<script src='script.js'></script>
+<script>
+    initialize();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+    async
+    src='https://www.googletagmanager.com/gtag/js?id=UA-124510605-1'
+></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    
+    gtag('config', 'UA-124510605-1');
+</script>
+<link
+    rel='stylesheet'
+    href='styles.css'
+    media='screen'
+/>
 </head>
 <body>
     <div class='main'>
         <span class='signWord'>Magische Karten</span>
-        <div class='textArea'>
+        <div
+            class='textArea'
+            id='textArea1'
+        >
             <p id='exerciseIntro'>
                 <b>Denke Dir nun bitte eine Zahl zwischen 1 und 63
                     aus</b> und beantworte mir, ob sie sich auf der unten
@@ -41,40 +62,27 @@
                 auftaucht:
             </p>
         </div>
-        <div class='tableArea'>
-            <table id='showCards'></table>
-        </div>
-        <div class='textArea'>
+        <div
+            class='tableArea'
+            id='tableArea1'
+        ></div>
+        <div
+            class='textArea'
+            id='textArea2'
+        >
             <p id='exerciseQuestion'>Ist Deine ausgedachte Zahl auf
                 der obigen Karte dabei?</p>
         </div>
-        <div class='buttonArea'>
-            <button
-                class='button'
-                id='buttonYes'
-                type='button'
-                onclick='void(0)'
-            >
-                <span>Ja </span>
-            </button>
-            &nbsp;&nbsp;&nbsp;
-            <button
-                class='button'
-                id='buttonNo'
-                type='button'
-                onclick='void(0)'
-            >
-                <span>Nein </span>
-            </button>
-            <button
-                class='button'
-                id='buttonAgain'
-                type='button'
-                onclick='void(0)'
-            >
-                <span>Nochmal! </span>
-            </button>
-        </div>
+        <div
+            class='buttonArea'
+            id='buttonArea1'
+        ></div>
     </div>
+    <script>
+                    createButton('tableArea1', 'buttonArea1', 'buttonYes', 'Ja', 'buttonYes', true, true);
+                    createButton('tableArea1', 'buttonArea1', 'buttonNo', 'Nein', 'buttonNo', true, false);
+                    createButton('tableArea1', 'buttonArea1', 'buttonAgain', 'Nochmal', 'buttonAgain', false, false);
+                    getArrayValues('tableArea1', false);
+                </script>
 </body>
 </html>
