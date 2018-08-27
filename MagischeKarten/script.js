@@ -16,25 +16,11 @@
 
 const LOGGING_ENABLED = false;
 
-let array1;
-let array2;
-let array3;
-let array4;
-let array5;
-let array6;
-let array1Table;
-let array2Table;
-let array3Table;
-let array4Table;
-let array5Table;
-let array6Table;
-let buttonYes;
-let buttonNo;
-let buttonAgain;
-let htmlElement;
+let array1, array2, array3, array4, array5, array6;
+let array1Table, array2Table, array3Table, array4Table, array5Table, array6Table;
+let buttonYes, buttonNo, buttonAgain;
 let level;
-let paragraph1;
-let paragraph2;
+let paragraph1, paragraph2;
 let secretNumber;
 
 function initialize() {

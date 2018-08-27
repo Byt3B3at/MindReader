@@ -34,6 +34,9 @@ body {
         height: 2.3vw;
         width: 5.7vw;
     }
+    #buttonYes:hover, #buttonNo:hover,#buttonAgain:hover {
+        background-color: #0000ff;
+    }
     #result {
         font-size: 2.3vw;
         line-height: 1.3;
@@ -177,15 +180,17 @@ body {
     margin-right: 0.7em;
 }
 
-#buttonYes:hover, #buttonNo:hover,#buttonAgain:hover {
-    background-color: #0000ff;
-}
-
 #result {
     color: #cccedd;
     line-height: 1.3;
     margin: auto;
     text-align: center;
+}
+
+#buttonYes:active, #buttonNo:active,#buttonAgain:active {
+    background-color: #0000ff;
+    box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
+    transform: translateY(4px);
 }
 
 @keyframes neon {
