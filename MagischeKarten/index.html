@@ -7,11 +7,11 @@
     name='viewport'
 />
 <meta
-    content='magisch, kartenspiel, zaubertrick'
+    content='magisch, magischekarten, kartenspiel, zaubertrick'
     name='keywords'
 />
 <meta
-    content='Magisches Kartenspiel&#10;Bei dem Spiel errate ich eine von Dir ausgedachte Zahl!'
+    content='Magisches Kartenspiel&#10;Hierbei errate ich eine von Dir ausgedachte Zahl!'
     name='description'
 />
 <meta
@@ -54,14 +54,7 @@
         <div
             class='textArea'
             id='textArea1'
-        >
-            <p id='exerciseIntro'>
-                <b>Denke Dir nun bitte eine Zahl zwischen 1 und 63
-                    aus</b> und beantworte mir, ob sie sich auf der unten
-                dargestellten sowie den folgenden Karten (insgesamt 6)
-                auftaucht:
-            </p>
-        </div>
+        ></div>
         <div
             class='tableArea'
             id='tableArea1'
@@ -69,20 +62,37 @@
         <div
             class='textArea'
             id='textArea2'
-        >
-            <p id='exerciseQuestion'>Ist Deine ausgedachte Zahl auf
-                der obigen Karte dabei?</p>
-        </div>
+        ></div>
         <div
             class='buttonArea'
             id='buttonArea1'
         ></div>
     </div>
     <script>
-                    createButton('tableArea1', 'buttonArea1', 'buttonYes', 'Ja', 'buttonYes', true, true);
-                    createButton('tableArea1', 'buttonArea1', 'buttonNo', 'Nein', 'buttonNo', true, false);
-                    createButton('tableArea1', 'buttonArea1', 'buttonAgain', 'Nochmal', 'buttonAgain', false, false);
+                    appendChildElement('textArea1', paragraph1);
+                    appendChildElement('textArea2', paragraph2);
+                    
                     getArrayValues('tableArea1', false);
+                    
+                    appendChildElement('buttonArea1', buttonYes);
+                    buttonYes.addEventListener('click', function() {
+
+                        getArrayValues('tableArea1', true);
+                        
+                    });
+                    appendChildElement('buttonArea1', buttonNo);
+                    buttonNo.addEventListener('click', function() {
+
+                        getArrayValues('tableArea1', false);
+                        
+                    });
+                    appendChildElement('buttonArea1', buttonAgain);
+                    buttonAgain.addEventListener('click', function() {
+
+                        getArrayValues('tableArea1', false);
+                        
+                    });
+                    hideHtmlElement(buttonAgain);
                 </script>
 </body>
 </html>

@@ -3,17 +3,19 @@
  * 
  * @author Marcus Freund
  * @date 2018-08-06
- * @version 1.45
- * @description Diese Bibliothek stellt Funktionen zur Verfuegung, die dem
- *              Benutzer 6 verschiedene Karten mit fest vorgegebenen Zahlen
- *              ausgibt. Der Benutzer bestaetigt, auf welcher der Karten sich
- *              seine gedachte Zahl befindet. Die ersten Zahlen der 'positiven'
- *              Karten werden addiert und das Ergebnis ergibt die gedachte Zahl.
+ * @version 1.5
+ * @description This library offers functions run a magic card game. The game
+ *              works as follows: The player is told to think of a number
+ *              between 1 and 63. The game starts with a card which displays 32
+ *              numbers and overall 6 cards are shown to him. So he is asked six
+ *              times overall if his guessed number is shown on the displayed
+ *              cards. If he confirms, the first number of the card is stored
+ *              and added to the possible numbers where he confirms too. The
+ *              result is his guessed number.
  */
 
 const LOGGING_ENABLED = false;
 
-let htmlElement;
 let array1;
 let array2;
 let array3;
@@ -26,30 +28,129 @@ let array3Table;
 let array4Table;
 let array5Table;
 let array6Table;
+let buttonYes;
+let buttonNo;
+let buttonAgain;
+let htmlElement;
 let level;
+let paragraph1;
+let paragraph2;
 let secretNumber;
 
 function initialize() {
 
-    setArrayValues();
+    setArrays();
+    setButtons();
+    setParagraphs();
+    setTables();
     
 }
 
-function setHtmlElement(elementId) {
-
-    return htmlElement = document.getElementById(elementId);
+function createParagraph(id, string) {
+    
+    let paragraph = document.createElement('p');
+    paragraph.setAttribute('class', 'p');
+    paragraph.setAttribute('id', id);
+    const textValue = document.createTextNode(string);
+    paragraph.appendChild(textValue);
+    return paragraph;
     
 }
 
-function getHtmlElement() {
+function setParagraphs() {
 
-    return htmlElement;
+    paragraph1 = createParagraph('exerciseIntro', 
+        `Denke Dir nun bitte eine Zahl zwischen 1 und 63
+        aus und beantworte mir, ob sie sich auf der unten
+        dargestellten sowie den folgenden Karten (insgesamt 6)
+        auftaucht:`)
+    paragraph2 = createParagraph('exerciseQuestion', 
+        `Ist Deine ausgedachte Zahl auf der obigen Karte dabei?`)
+    
+}
+
+function createButton(id, string) {
+
+    let button = document.createElement('button');
+    button.setAttribute('class', 'button');
+    button.setAttribute('id', id);
+    button.setAttribute('type', 'button');
+    const textValue = document.createTextNode(string);
+    button.appendChild(textValue);
+    return button;
+    
+}
+
+function setButtons() {
+
+    buttonYes = createButton('buttonYes', 'Ja');
+    buttonNo = createButton('buttonNo', 'Nein');
+    buttonAgain = createButton('buttonAgain', 'Nochmal');
+    
+}
+
+function setArrays() {
+
+    array1 =
+        [
+            
+            '01', '03', '05', '07', '09', '11', '13', '15', '17', '19', '21', '23', '25', '27',
+            '29', '31', '33', '35', '37', '39', '41', '43', '45', '47', '49', '51', '53', '55',
+            '57', '59', '61', '63'
+        
+        ];
+    
+    array2 =
+        [
+            
+            '02', '03', '06', '07', '10', '11', '14', '15', '18', '19', '22', '23', '26', '27',
+            '30', '31', '34', '35', '38', '39', '42', '43', '46', '47', '50', '51', '54', '55',
+            '58', '59', '62', '63'
+        
+        ];
+    
+    array3 =
+        [
+            
+            '04', '05', '06', '07', '12', '13', '14', '15', '20', '21', '22', '23', '28', '29',
+            '30', '31', '36', '37', '38', '39', '44', '45', '46', '47', '52', '53', '54', '55',
+            '60', '61', '62', '63'
+        
+        ];
+    
+    array4 =
+        [
+            
+            '08', '09', '10', '11', '12', '13', '14', '15', '24', '25', '26', '27', '28', '29',
+            '30', '31', '40', '41', '42', '43', '44', '45', '46', '47', '56', '57', '58', '59',
+            '60', '61', '62', '63'
+        
+        ];
+    
+    array5 =
+        [
+            
+            '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
+            '30', '31', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
+            '60', '61', '62', '63'
+        
+        ];
+    
+    array6 =
+        [
+            
+            '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45',
+            '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
+            '60', '61', '62', '63'
+        
+        ];
     
 }
 
 function createTable(tableData, id) {
 
     let table = document.createElement('table');
+    table.setAttribute('class', 'table');
     table.setAttribute('id', id);
     
     let tableBody = document.createElement('tbody');
@@ -71,43 +172,8 @@ function createTable(tableData, id) {
     return table;
 }
 
-function createButton(functionOutputAreaId, buttonAreaId, id, value, buttonElement, isVisible,
-    calcSecretNumber) {
+function setTables() {
 
-    let button = document.createElement('button');
-    button.setAttribute('class', 'button');
-    button.setAttribute('id', id);
-    button.setAttribute('type', 'button');
-    
-    button.addEventListener("click", function() {
-
-        getArrayValues(functionOutputAreaId, calcSecretNumber);
-    });
-    
-    const textValue = document.createTextNode(value);
-    button.appendChild(textValue);
-    appendChildElement(buttonAreaId, button);
-    
-    if (!isVisible) {
-        
-        button.style.display = 'none';
-        
-    }
-    
-    return button;
-}
-
-function setArrayValues() {
-
-    array1 =
-        [
-            
-            '01', '03', '05', '07', '09', '11', '13', '15', '17', '19', '21', '23', '25', '27',
-            '29', '31', '33', '35', '37', '39', '41', '43', '45', '47', '49', '51', '53', '55',
-            '57', '59', '61', '63'
-        
-        ];
-    
     array1Table = createTable([
         [
             array1.slice(0, 4).join(', ')
@@ -127,15 +193,6 @@ function setArrayValues() {
             array1.slice(28).join(', ')
         ]
     ], 'array1Table');
-    
-    array2 =
-        [
-            
-            '02', '03', '06', '07', '10', '11', '14', '15', '18', '19', '22', '23', '26', '27',
-            '30', '31', '34', '35', '38', '39', '42', '43', '46', '47', '50', '51', '54', '55',
-            '58', '59', '62', '63'
-        
-        ];
     
     array2Table = createTable([
         [
@@ -157,15 +214,6 @@ function setArrayValues() {
         ]
     ], 'array2Table');
     
-    array3 =
-        [
-            
-            '04', '05', '06', '07', '12', '13', '14', '15', '20', '21', '22', '23', '28', '29',
-            '30', '31', '36', '37', '38', '39', '44', '45', '46', '47', '52', '53', '54', '55',
-            '60', '61', '62', '63'
-        
-        ];
-    
     array3Table = createTable([
         [
             array3.slice(0, 4).join(', ')
@@ -185,15 +233,6 @@ function setArrayValues() {
             array3.slice(28).join(', ')
         ]
     ], 'array3Table');
-    
-    array4 =
-        [
-            
-            '08', '09', '10', '11', '12', '13', '14', '15', '24', '25', '26', '27', '28', '29',
-            '30', '31', '40', '41', '42', '43', '44', '45', '46', '47', '56', '57', '58', '59',
-            '60', '61', '62', '63'
-        
-        ];
     
     array4Table = createTable([
         [
@@ -215,15 +254,6 @@ function setArrayValues() {
         ]
     ], 'array4Table');
     
-    array5 =
-        [
-            
-            '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
-            '30', '31', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
-            '60', '61', '62', '63'
-        
-        ];
-    
     array5Table = createTable([
         [
             array5.slice(0, 4).join(', ')
@@ -243,15 +273,6 @@ function setArrayValues() {
             array5.slice(28).join(', ')
         ]
     ], 'array5Table');
-    
-    array6 =
-        [
-            
-            '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45',
-            '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
-            '60', '61', '62', '63'
-        
-        ];
     
     array6Table = createTable([
         [
@@ -280,8 +301,8 @@ function getArrayValues(htmlElementId, userInput) {
     switch (getLevel()) {
         
         case 1:
-            setSecretNumber(false, null);
-            showHtmlElement('exerciseIntro');
+            setSecretNumber(null, false);
+            showHtmlElement(paragraph1);
             if (!getHtmlElementById(htmlElementId).childNodes[0]) {
                 
                 appendChildElement(htmlElementId, array1Table);
@@ -291,10 +312,10 @@ function getArrayValues(htmlElementId, userInput) {
                 replaceChildElement(htmlElementId, array1Table);
                 
             }
-            showHtmlElement('exerciseQuestion');
-            showHtmlElement('buttonYes');
-            showHtmlElement('buttonNo');
-            hideHtmlElement('buttonAgain');
+            showHtmlElement(paragraph2);
+            showHtmlElement(buttonYes);
+            showHtmlElement(buttonNo);
+            hideHtmlElement(buttonAgain);
             setLevel(); // 2
             break;
         
@@ -330,24 +351,12 @@ function getArrayValues(htmlElementId, userInput) {
         
         case 7:
             setSecretNumber(userInput, array6);
-            hideHtmlElement('exerciseIntro');
-            hideHtmlElement('exerciseQuestion');
-            hideHtmlElement('buttonYes');
-            hideHtmlElement('buttonNo');
-            showHtmlElement('buttonAgain');
-            let textNode = '';
-            if (getSecretNumber() > 0) {
-                
-                textNode =
-                    createTextNode('result',
-                        `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`);
-                
-            } else {
-                
-                textNode = createTextNode('result', `Warum so geheimnisvoll?`);
-                
-            }
-            replaceChildElement(htmlElementId, textNode);
+            hideHtmlElement(paragraph1);
+            hideHtmlElement(paragraph2);
+            hideHtmlElement(buttonYes);
+            hideHtmlElement(buttonNo);
+            showHtmlElement(buttonAgain);
+            replaceChildElement(htmlElementId, getResult());
             setLevel(); // 1
             
     }
@@ -366,11 +375,20 @@ function getArrayValues(htmlElementId, userInput) {
     
 }
 
-function getLevel() {
+function getResult() {
+    
+    if (getSecretNumber() > 0) {
+        
+        return createParagraph('result', `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`);
+    
+    } else {
+        
+        return createParagraph('result', `Warum so geheimnisvoll?`);
 
-    return !level ? level = 1 : level;
+    }
     
 }
+
 
 function setLevel() {
 
@@ -378,9 +396,9 @@ function setLevel() {
     
 }
 
-function getSecretNumber() {
+function getLevel() {
 
-    return !secretNumber || (getLevel() === 1) ? secretNumber = 0 : secretNumber;
+    return !level ? level = 1 : level;
     
 }
 
@@ -390,9 +408,20 @@ function setSecretNumber(userInputYes, array) {
     
 }
 
+function getSecretNumber() {
+
+    return !secretNumber || (getLevel() === 1) ? secretNumber = 0 : secretNumber;
+    
+}
+
 function getHtmlElementById(htmlElementId) {
 
-    return document.getElementById(htmlElementId);
+    if (document.getElementById(htmlElementId) !== null) {
+        
+        return document.getElementById(htmlElementId);
+        
+    }
+    return htmlElementId;
     
 }
 
@@ -426,6 +455,12 @@ function showHtmlElement(htmlElementId) {
 
     const htmlElement = getHtmlElementById(htmlElementId);
     
+    if (LOGGING_ENABLED) {
+        
+        console.log(htmlElement);
+    
+    }
+    
     if (htmlElement.getAttribute('type') === 'button') {
         
         return htmlElement.style.display = 'inline-block';
@@ -453,17 +488,5 @@ function hideHtmlElement(htmlElementId) {
     }
     
     return htmlElement.style.visibility = 'hidden';
-    
-}
-
-function createTextNode(id, text) {
-
-    let paragraph = document.createElement("P");
-    paragraph.setAttribute('id', id);
-    
-    let textNode = document.createTextNode(text);
-    paragraph.appendChild(textNode);
-    
-    return paragraph;
     
 }

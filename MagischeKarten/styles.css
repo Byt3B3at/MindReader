@@ -14,151 +14,148 @@ body {
     background-color: #29315e;
 }
 
-@media ( min-width : 950px) {
-    /* wide browser window */
+@media ( min-width : 1024px) {
     .signWord {
         font-size: 5vw;
     }
-    .textArea {
-        font-size: 1.2vw;
-    }
     #exerciseIntro {
+        font-size: 1.2vw;
         max-width: 25vw;
     }
     #array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table {
         font-size: 1.3vw;
     }
     #exerciseQuestion {
+        font-size: 1.2vw;
         max-width: 18vw;
+    }
+    #buttonYes, #buttonNo,#buttonAgain {
+        font-size: 1.2vw;
+        height: 2.3vw;
+        width: 5.7vw;
     }
     #result {
         font-size: 2.3vw;
         line-height: 1.3;
         max-width: 28vw;
-    }
-    .button {
-        font-size: 1.2vw;
-        height: 2.3vw;
-        width: 5.7vw;
     }
 }
 
-@media ( min-width : 450px) and (max-width: 950px) {
-    /* notebooks */
+@media ( min-width : 450px) and (max-width: 1024px) {
     .signWord {
-        font-size: 5vw;
-    }
-    .textArea {
-        font-size: 1.2vw;
+        font-size: 10vw;
     }
     #exerciseIntro {
-        max-width: 25vw;
+        font-size: 2.3vw;
+        max-width: 53vw;
     }
     #array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table {
-        font-size: 1.3vw;
+        font-size: 2.4vw;
     }
     #exerciseQuestion {
-        max-width: 18vw;
+        font-size: 2.3vw;
+        max-width: 48vw;
+    }
+    #buttonYes, #buttonNo,#buttonAgain {
+        font-size: 3.2vw;
+        height: 8.3vw;
+        width: 15.7vw;
     }
     #result {
-        font-size: 2.3vw;
+        font-size: 4.3vw;
         line-height: 1.3;
         max-width: 28vw;
-    }
-    .button {
-        font-size: 1.2vw;
-        height: 2.3vw;
-        width: 5.7vw;
     }
 }
 
 @media ( max-width : 450px) {
-    /* mobile devices */
     .signWord {
         font-size: 14vw;
     }
-    .textArea {
-        font-size: 3.6vw;
-    }
     #exerciseIntro {
+        font-size: 3.6vw;
         max-width: 76vw;
-    }
-    #exerciseQuestion {
-        max-width: 65vw;
     }
     #array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table {
         font-size: 4.5vw;
+    }
+    #exerciseQuestion {
+        font-size: 3.6vw;
+        max-width: 65vw;
+    }
+    #buttonYes, #buttonNo,#buttonAgain {
+        font-size: 4.5vw;
+        height: 10vw;
+        width: 25vw;
     }
     #result {
         font-size: 6vw;
         line-height: 1.3;
         max-width: 60vw;
     }
-    .button {
-        font-size: 4.5vw;
-        height: 10vw;
-        width: 25vw;
-    }
 }
 
 .main {
     display: flex;
-    font-family: Georgia;
     flex-direction: column;
 }
 
 .signWord {
-    font-family: Vibur, cursive;
-    color: #c6e2ff;
-    line-height: 1em;
     animation: neon .08s ease-in-out infinite alternate;
-    padding-bottom: 0.05em;
+    color: #c6e2ff;
+    font-family: Vibur, cursive;
+    line-height: 1em;
     margin: auto;
+    padding-bottom: 0.05em;
+}
+
+.p {
+    font-family: Georgia;
 }
 
 .textArea {
-    text-align: center;
-    color: #cccedd;
-    line-height: 1.3;
-    margin: auto;
-    padding: 0.3em;
-}
-
-#exerciseIntro {
     
 }
 
+#exerciseIntro {
+    color: #cccedd;
+    line-height: 1.3;
+    margin: auto;
+    padding: 0.9em;
+    text-align: center;
+}
+
 #exerciseQuestion {
+    color: #cccedd;
     font-weight: bold;
+    line-height: 1.3;
+    margin: auto;
+    padding: 0.8em;
+    text-align: center;
 }
 
 .tableArea {
     
 }
 
+.table {
+    font-family: Verdana;
+}
+
 #array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table {
-    box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
     background: url(paper.gif);
-    border: 0.06em solid black;
     border-radius: 0.8em;
     border-collapse: separate;
     border-spacing: 1em;
-    font-family: Verdana;
+    box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
     color: #294b5e;
-    text-align: center;
     line-height: 1.5;
     margin: auto;
+    text-align: center;
 }
 
 #array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table td {
     line-height: 0.6;
-}
-
-#result {
-    color: #cccedd;
-    line-height: 1.3;
-    text-align: center;
-    margin: auto;
 }
 
 .buttonArea {
@@ -166,19 +163,29 @@ body {
 }
 
 .button {
-    box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
-    border-radius: 0.4em;
-    background-color: #004080;
     border: none;
-    color: white;
     text-align: center;
+}
+
+#buttonYes, #buttonNo,#buttonAgain {
+    border-radius: 0.4em;
+    box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
+    background-color: #004080;
+    color: white;
     cursor: pointer;
     margin-left: 0.7em;
     margin-right: 0.7em;
 }
 
-.button:hover {
+#buttonYes:hover, #buttonNo:hover,#buttonAgain:hover {
     background-color: #0000ff;
+}
+
+#result {
+    color: #cccedd;
+    line-height: 1.3;
+    margin: auto;
+    text-align: center;
 }
 
 @keyframes neon {
