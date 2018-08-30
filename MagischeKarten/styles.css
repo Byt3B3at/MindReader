@@ -22,7 +22,7 @@ body {
         font-size: 1.2vw;
         max-width: 25vw;
     }
-    #array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table {
+    #arrayTable1, #arrayTable2, #arrayTable3, #arrayTable4, #arrayTable5, #arrayTable6 {
         font-size: 1.3vw;
     }
     #exerciseQuestion {
@@ -52,7 +52,7 @@ body {
         font-size: 2.3vw;
         max-width: 53vw;
     }
-    #array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table {
+    #arrayTable1, #arrayTable2, #arrayTable3, #arrayTable4, #arrayTable5, #arrayTable6 {
         font-size: 2.4vw;
     }
     #exerciseQuestion {
@@ -79,7 +79,7 @@ body {
         font-size: 3.6vw;
         max-width: 76vw;
     }
-    #array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table {
+    #arrayTable1, #arrayTable2, #arrayTable3, #arrayTable4, #arrayTable5, #arrayTable6 {
         font-size: 4.5vw;
     }
     #exerciseQuestion {
@@ -145,7 +145,7 @@ body {
     font-family: Verdana;
 }
 
-#array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table {
+#arrayTable1, #arrayTable2, #arrayTable3, #arrayTable4, #arrayTable5, #arrayTable6 {
     background: url(paper.gif);
     border-radius: 0.8em;
     border-collapse: separate;
@@ -157,7 +157,7 @@ body {
     text-align: center;
 }
 
-#array1Table, #array2Table, #array3Table, #array4Table, #array5Table, #array6Table td {
+#arrayTable1, #arrayTable2, #arrayTable3, #arrayTable4, #arrayTable5, #arrayTable6 td {
     line-height: 0.6;
 }
 
