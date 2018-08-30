@@ -7,45 +7,26 @@
     name='viewport'
 />
 <meta
-    content='magisch, magischekarten, kartenspiel, zaubertrick'
+    content='magisch, magischekarten, kartenspiel, kartentrick, zaubertrick'
     name='keywords'
 />
 <meta
-    content='Magisches Kartenspiel&#10;Hierbei errate ich eine von Dir ausgedachte Zahl!'
+    content='Magisches Kartenspiel - Ich errate eine von Dir ausgedachte Zahl!'
     name='description'
 />
 <meta
     content='Marcus Freund'
     name='author'
 />
-<meta
-    content='Marcus Freund'
-    name='copyright'
-/>
 <title>Magische Karten</title>
-<script src='script.js'></script>
+<script src=script.js></script>
 <script>
     initialize();
 </script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script
-    async
-    src='https://www.googletagmanager.com/gtag/js?id=UA-124510605-1'
-></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    
-    gtag('config', 'UA-124510605-1');
-</script>
 <link
-    rel='stylesheet'
-    href='styles.css'
-    media='screen'
+    rel=stylesheet
+    href=styles.css
+    media=screen
 />
 </head>
 <body>
@@ -72,24 +53,25 @@
                     appendChildElement('textArea1', paragraph1);
                     appendChildElement('textArea2', paragraph2);
                     
-                    getArrayValues('tableArea1', false);
+                    runGame('tableArea1', false);
                     
                     appendChildElement('buttonArea1', buttonYes);
                     buttonYes.addEventListener('click', function() {
 
-                        getArrayValues('tableArea1', true);
+                        runGame('tableArea1', true);
                         
                     });
                     appendChildElement('buttonArea1', buttonNo);
                     buttonNo.addEventListener('click', function() {
 
-                        getArrayValues('tableArea1', false);
+                        runGame('tableArea1', false);
                         
                     });
                     appendChildElement('buttonArea1', buttonAgain);
                     buttonAgain.addEventListener('click', function() {
 
-                        getArrayValues('tableArea1', false);
+                        runGame('tableArea1', false);
+                        console.clear();
                         
                     });
                     hideHtmlElement(buttonAgain);
