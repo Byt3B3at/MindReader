@@ -20,9 +20,6 @@
 />
 <title>Magische Karten</title>
 <script src=script.js></script>
-<script>
-    initialize();
-</script>
 <link
     rel=stylesheet
     href=styles.css
@@ -50,31 +47,41 @@
         ></div>
     </div>
     <script>
-                    appendChildElement('textArea1', paragraph1);
-                    appendChildElement('textArea2', paragraph2);
-                    
-                    runGame('tableArea1', false);
-                    
-                    appendChildElement('buttonArea1', buttonYes);
-                    buttonYes.addEventListener('click', function() {
+                <!--
+                    window.onload = function() {
 
-                        runGame('tableArea1', true);
+                        initialize();
                         
-                    });
-                    appendChildElement('buttonArea1', buttonNo);
-                    buttonNo.addEventListener('click', function() {
-
+                        appendChildElement('textArea1', paragraphExerciseIntro);
+                        appendChildElement('textArea2', paragraphExerciseQuestion);
+                        
                         runGame('tableArea1', false);
                         
-                    });
-                    appendChildElement('buttonArea1', buttonAgain);
-                    buttonAgain.addEventListener('click', function() {
+                        appendChildElement('buttonArea1', buttonYes);
+                        buttonYes.addEventListener('click', function() {
 
-                        runGame('tableArea1', false);
-                        console.clear();
+                            runGame('tableArea1', true);
+                            
+                        });
+                        appendChildElement('buttonArea1', buttonNo);
+                        buttonNo.addEventListener('click', function() {
+
+                            runGame('tableArea1', false);
+                            
+                        });
+                        appendChildElement('buttonArea1', buttonAgain);
+                        buttonAgain.addEventListener('click', function() {
+
+                            runGame('tableArea1', false);
+                            console.clear();
+                            
+                        });
                         
-                    });
-                    hideHtmlElement(buttonAgain);
+                        hideHtmlElement(buttonAgain);
+                        
+                    }
+                //-->
                 </script>
+    <noscript>Either your browser does not support JavaScript or you disabled it.</noscript>
 </body>
 </html>

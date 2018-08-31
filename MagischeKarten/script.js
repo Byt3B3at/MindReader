@@ -58,27 +58,31 @@ class MagicCard {
     
  }
 
-let buttonYes, buttonNo, buttonAgain;
-
-const card1 = getCard1(getNumbersCard1());
-const card2 = getCard2(getNumbersCard2());
-const card3 = getCard3(getNumbersCard3());
-const card4 = getCard4(getNumbersCard4());
-const card5 = getCard5(getNumbersCard5());
-const card6 = getCard6(getNumbersCard6());
+const paragraphExerciseIntro = getParagraphExerciseIntro();
+const paragraphExerciseQuestion = getParagraphExerciseQuestion();
 
 let level;
 
-let paragraph1, paragraph2;
+let buttonYes, buttonNo, buttonAgain;
 
 let secretNumber;
 
+const paragraphNoResult = getParagraphNoResult();
+const paragraphResult = getParagraphResult();
+
 function initialize() {
 
-    setParagraphs();
     setButtons();
     
 }
+
+const numbersCard1 = 
+    
+    [
+        '01', '03', '05', '07', '09', '11', '13', '15', '17', '19', '21', '23', '25', '27',
+        '29', '31', '33', '35', '37', '39', '41', '43', '45', '47', '49', '51', '53', '55',
+        '57', '59', '61', '63'
+    ];
 
 function sliceArray(array){
     
@@ -104,119 +108,128 @@ function sliceArray(array){
     
 }
 
-function getNumbersCard1() {
+function setCard(array, id) {
     
-    const array =
-        [
-            
-            '01', '03', '05', '07', '09', '11', '13', '15', '17', '19', '21', '23', '25', '27',
-            '29', '31', '33', '35', '37', '39', '41', '43', '45', '47', '49', '51', '53', '55',
-            '57', '59', '61', '63'
-        
-        ];
-    return array;
+    return new MagicCard(sliceArray(array), id).tableArray;
+    
 }
 
-function getCard1(numbers) {
+function getNumbersCard1() {
     
-    return new MagicCard(sliceArray(numbers), 'arrayTable1').tableArray;
+    return numbersCard1;
     
 }
+
+function getCard1() {
+    
+    return card1;
+    
+}
+
+const numbersCard2 = 
+    
+    [
+        '02', '03', '06', '07', '10', '11', '14', '15', '18', '19', '22', '23', '26', '27',
+        '30', '31', '34', '35', '38', '39', '42', '43', '46', '47', '50', '51', '54', '55',
+        '58', '59', '62', '63'
+    ];
 
 function getNumbersCard2() {
     
-    const array =
-        [
-            
-            '02', '03', '06', '07', '10', '11', '14', '15', '18', '19', '22', '23', '26', '27',
-            '30', '31', '34', '35', '38', '39', '42', '43', '46', '47', '50', '51', '54', '55',
-            '58', '59', '62', '63'
-        
-        ];
-    return array;
+    return numbersCard2;
+    
 }
 
-function getCard2(numbers) {
+function getCard2() {
     
-    return new MagicCard(sliceArray(numbers), 'arrayTable2').tableArray;
+    return card2;
     
 }
+
+const numbersCard3 =
+    
+    [
+        '04', '05', '06', '07', '12', '13', '14', '15', '20', '21', '22', '23', '28', '29',
+        '30', '31', '36', '37', '38', '39', '44', '45', '46', '47', '52', '53', '54', '55',
+        '60', '61', '62', '63'
+    ];
 
 function getNumbersCard3() {
     
-    const array =
-        [
-            
-            '04', '05', '06', '07', '12', '13', '14', '15', '20', '21', '22', '23', '28', '29',
-            '30', '31', '36', '37', '38', '39', '44', '45', '46', '47', '52', '53', '54', '55',
-            '60', '61', '62', '63'
-        
-        ];
-    return array;
+    return numbersCard3;
+    
 }
 
-function getCard3(numbers) {
+function getCard3() {
     
-    return new MagicCard(sliceArray(numbers), 'arrayTable3').tableArray;
+    return card3;
     
 }
+
+const numbersCard4 =
+    
+    [
+        '08', '09', '10', '11', '12', '13', '14', '15', '24', '25', '26', '27', '28', '29',
+        '30', '31', '40', '41', '42', '43', '44', '45', '46', '47', '56', '57', '58', '59',
+        '60', '61', '62', '63'
+    ];
 
 function getNumbersCard4() {
     
-    const array =
-        [
-            
-            '08', '09', '10', '11', '12', '13', '14', '15', '24', '25', '26', '27', '28', '29',
-            '30', '31', '40', '41', '42', '43', '44', '45', '46', '47', '56', '57', '58', '59',
-            '60', '61', '62', '63'
-        
-        ];
-    return array;
+    return numbersCard4;
+    
 }
 
-function getCard4(numbers) {
+function getCard4() {
     
-    return new MagicCard(sliceArray(numbers), 'arrayTable4').tableArray;
+    return card4;
     
 }
-    
+
+const numbersCard5 =
+    [
+        '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
+        '30', '31', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
+        '60', '61', '62', '63'
+    ];
+
 function getNumbersCard5() {
     
-    const array =
-        [
-            
-            '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
-            '30', '31', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
-            '60', '61', '62', '63'
-        
-        ];
-    return array;
+    return numbersCard5;
+    
 }
 
-function getCard5(numbers) {
+function getCard5() {
     
-    return new MagicCard(sliceArray(numbers), 'arrayTable5').tableArray;
+    return card5;
     
 }
     
+const numbersCard6 =
+    [
+        '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45',
+        '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
+        '60', '61', '62', '63'
+    ];
+
 function getNumbersCard6() {
     
-    const array =
-        [
-            
-            '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45',
-            '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
-            '60', '61', '62', '63'
-        
-        ];
-    return array;
+    return numbersCard6;
+    
 }
 
-function getCard6(numbers) {
+function getCard6() {
     
-    return new MagicCard(sliceArray(numbers), 'arrayTable6').tableArray;
+    return card6;
     
 }
+
+const card1 = setCard(getNumbersCard1(), 'card1');
+const card2 = setCard(getNumbersCard2(), 'card2');
+const card3 = setCard(getNumbersCard3(), 'card3');
+const card4 = setCard(getNumbersCard4(), 'card4');
+const card5 = setCard(getNumbersCard5(), 'card5');
+const card6 = setCard(getNumbersCard6(), 'card6');
 
 function createParagraph(id, string) {
     
@@ -229,15 +242,38 @@ function createParagraph(id, string) {
     
 }
 
-function setParagraphs() {
-
-    paragraph1 = createParagraph('exerciseIntro', 
-        `Denke Dir nun bitte eine Zahl zwischen 1 und 63
+function getParagraphExerciseIntro() {
+    
+    const textNode = `Denke Dir nun bitte eine Zahl zwischen 1 und 63
         aus und beantworte mir, ob sie sich auf der unten
         dargestellten sowie den folgenden Karten (insgesamt 6)
-        auftaucht:`);
-    paragraph2 = createParagraph('exerciseQuestion', 
-        `Ist Deine ausgedachte Zahl auf der obigen Karte dabei?`);
+        auftaucht:`;
+    
+    return createParagraph('exerciseIntro', textNode);
+    
+}
+
+function getParagraphExerciseQuestion() {
+
+    const textNode = `Ist Deine ausgedachte Zahl auf der obigen Karte dabei?`;
+    
+    return createParagraph('exerciseQuestion', textNode);
+    
+}
+
+function getParagraphNoResult() {
+
+    const textNode = `Warum so geheimnisvoll?`;
+    
+    return createParagraph('result', textNode);
+    
+}
+
+function getParagraphResult() {
+
+    const textNode = `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`;
+    
+    return createParagraph('result', textNode);
     
 }
 
@@ -267,7 +303,7 @@ function runGame(htmlElementId, userInput) {
         
         case 1:
             setSecretNumber(htmlElementId, 0);
-            showHtmlElement(paragraph1);
+            showHtmlElement(paragraphExerciseIntro);
             if (!getHtmlElementById(htmlElementId).childNodes[0]) {
                 
                 appendChildElement(htmlElementId, card1);
@@ -277,7 +313,7 @@ function runGame(htmlElementId, userInput) {
                 replaceChildElement(htmlElementId, card1);
                 
             }
-            showHtmlElement(paragraph2);
+            showHtmlElement(paragraphExerciseQuestion);
             showHtmlElement(buttonYes);
             showHtmlElement(buttonNo);
             hideHtmlElement(buttonAgain);
@@ -316,8 +352,8 @@ function runGame(htmlElementId, userInput) {
         
         case 7:
             setSecretNumber(userInput, getNumbersCard6()[0]);
-            hideHtmlElement(paragraph1);
-            hideHtmlElement(paragraph2);
+            hideHtmlElement(paragraphExerciseIntro);
+            hideHtmlElement(paragraphExerciseQuestion);
             hideHtmlElement(buttonYes);
             hideHtmlElement(buttonNo);
             showHtmlElement(buttonAgain);
@@ -345,11 +381,11 @@ function getResult() {
     
     if (getSecretNumber() > 0) {
         
-        return createParagraph('result', `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`);
+        return getParagraphResult();
     
     } else {
         
-        return createParagraph('result', `Warum so geheimnisvoll?`);
+        return getParagraphNoResult();
 
     }
     
