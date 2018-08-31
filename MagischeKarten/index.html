@@ -50,30 +50,27 @@
                 <!--
                     window.onload = function() {
 
-                        initialize();
-                        
-                        appendChildElement('textArea1', paragraphExerciseIntro);
-                        appendChildElement('textArea2', paragraphExerciseQuestion);
+                        appendChildElement('textArea1', PARAGRAPH_INTRO);
+                        appendChildElement('textArea2', PARAGRAPH_OUTRO);
                         
                         runGame('tableArea1', false);
                         
-                        appendChildElement('buttonArea1', buttonYes);
+                        appendChildElement('buttonArea1', BUTTON_YES);
                         buttonYes.addEventListener('click', function() {
 
                             runGame('tableArea1', true);
                             
                         });
-                        appendChildElement('buttonArea1', buttonNo);
+                        appendChildElement('buttonArea1', BUTTON_NO);
                         buttonNo.addEventListener('click', function() {
 
                             runGame('tableArea1', false);
                             
                         });
-                        appendChildElement('buttonArea1', buttonAgain);
+                        appendChildElement('buttonArea1', BUTTON_AGAIN);
                         buttonAgain.addEventListener('click', function() {
 
                             runGame('tableArea1', false);
-                            console.clear();
                             
                         });
                         

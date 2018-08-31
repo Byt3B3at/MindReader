@@ -3,7 +3,7 @@
  * 
  * @author Marcus Freund
  * @date 2018-08-06
- * @version 1.55
+ * @version 1.59
  * @description This library offers functions run a magic card game. The game
  *              works as follows: The player is told to think of a number
  *              between 1 and 63. The game starts with a card which displays 32
@@ -33,50 +33,32 @@ class MagicCard {
 
     createTableArray() {
 
-        let table = document.createElement('table');
-        table.setAttribute('class', 'table');
-        table.setAttribute('id', this.htmlElementId);
+        const TABLE = document.createElement('table');
+        TABLE.setAttribute('class', 'table');
+        TABLE.setAttribute('id', this.htmlElementId);
         
-        let tableBody = document.createElement('tbody');
+        const TABLE_BODY = document.createElement('tbody');
         
         this.cardNumbers.forEach(function(rowData) {
 
-            let row = document.createElement('tr');
+            const ROW = document.createElement('tr');
             
             rowData.forEach(function(cellData) {
 
-                let cell = document.createElement('td');
-                cell.appendChild(document.createTextNode(cellData));
-                row.appendChild(cell);
+                const CELL = document.createElement('td');
+                CELL.appendChild(document.createTextNode(cellData));
+                ROW.appendChild(CELL);
             });
-            tableBody.appendChild(row);
+            TABLE_BODY.appendChild(ROW);
         });
-        table.appendChild(tableBody);
+        TABLE.appendChild(TABLE_BODY);
         
-        return table;
+        return TABLE;
     }
     
  }
 
-const paragraphExerciseIntro = getParagraphExerciseIntro();
-const paragraphExerciseQuestion = getParagraphExerciseQuestion();
-
-let level;
-
-let buttonYes, buttonNo, buttonAgain;
-
-let secretNumber;
-
-const paragraphNoResult = getParagraphNoResult();
-const paragraphResult = getParagraphResult();
-
-function initialize() {
-
-    setButtons();
-    
-}
-
-const numbersCard1 = 
+const NUMBERS_CARD_1 = 
     
     [
         '01', '03', '05', '07', '09', '11', '13', '15', '17', '19', '21', '23', '25', '27',
@@ -116,7 +98,7 @@ function setCard(array, id) {
 
 function getNumbersCard1() {
     
-    return numbersCard1;
+    return NUMBERS_CARD_1;
     
 }
 
@@ -126,7 +108,7 @@ function getCard1() {
     
 }
 
-const numbersCard2 = 
+const NUMBERS_CARD_2 = 
     
     [
         '02', '03', '06', '07', '10', '11', '14', '15', '18', '19', '22', '23', '26', '27',
@@ -136,7 +118,7 @@ const numbersCard2 =
 
 function getNumbersCard2() {
     
-    return numbersCard2;
+    return NUMBERS_CARD_2;
     
 }
 
@@ -146,7 +128,7 @@ function getCard2() {
     
 }
 
-const numbersCard3 =
+const NUMBERS_CARD_3 =
     
     [
         '04', '05', '06', '07', '12', '13', '14', '15', '20', '21', '22', '23', '28', '29',
@@ -156,7 +138,7 @@ const numbersCard3 =
 
 function getNumbersCard3() {
     
-    return numbersCard3;
+    return NUMBERS_CARD_3;
     
 }
 
@@ -166,7 +148,7 @@ function getCard3() {
     
 }
 
-const numbersCard4 =
+const NUMBERS_CARD_4 =
     
     [
         '08', '09', '10', '11', '12', '13', '14', '15', '24', '25', '26', '27', '28', '29',
@@ -176,7 +158,7 @@ const numbersCard4 =
 
 function getNumbersCard4() {
     
-    return numbersCard4;
+    return NUMBERS_CARD_4;
     
 }
 
@@ -186,7 +168,7 @@ function getCard4() {
     
 }
 
-const numbersCard5 =
+const NUMBERS_CARD_5 =
     [
         '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
         '30', '31', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
@@ -195,7 +177,7 @@ const numbersCard5 =
 
 function getNumbersCard5() {
     
-    return numbersCard5;
+    return NUMBERS_CARD_5;
     
 }
 
@@ -205,7 +187,7 @@ function getCard5() {
     
 }
     
-const numbersCard6 =
+const NUMBERS_CARD_6 =
     [
         '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45',
         '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
@@ -214,7 +196,7 @@ const numbersCard6 =
 
 function getNumbersCard6() {
     
-    return numbersCard6;
+    return NUMBERS_CARD_6;
     
 }
 
@@ -224,141 +206,227 @@ function getCard6() {
     
 }
 
-const card1 = setCard(getNumbersCard1(), 'card1');
-const card2 = setCard(getNumbersCard2(), 'card2');
-const card3 = setCard(getNumbersCard3(), 'card3');
-const card4 = setCard(getNumbersCard4(), 'card4');
-const card5 = setCard(getNumbersCard5(), 'card5');
-const card6 = setCard(getNumbersCard6(), 'card6');
+const CARD_1 = setCard(getNumbersCard1(), 'card1');
+const CARD_2 = setCard(getNumbersCard2(), 'card2');
+const CARD_3 = setCard(getNumbersCard3(), 'card3');
+const CARD_4 = setCard(getNumbersCard4(), 'card4');
+const CARD_5 = setCard(getNumbersCard5(), 'card5');
+const CARD_6 = setCard(getNumbersCard6(), 'card6');
 
 function createParagraph(id, string) {
     
-    let paragraph = document.createElement('p');
-    paragraph.setAttribute('class', 'p');
-    paragraph.setAttribute('id', id);
-    const textValue = document.createTextNode(string);
-    paragraph.appendChild(textValue);
-    return paragraph;
+    const PARAGRAPH = document.createElement('p');
+    PARAGRAPH.setAttribute('class', 'p');
+    PARAGRAPH.setAttribute('id', id);
+    const TEXT_VALUE = document.createTextNode(string);
+    PARAGRAPH.appendChild(TEXT_VALUE);
+    return PARAGRAPH;
     
 }
 
-function getParagraphExerciseIntro() {
-    
-    const textNode = `Denke Dir nun bitte eine Zahl zwischen 1 und 63
-        aus und beantworte mir, ob sie sich auf der unten
-        dargestellten sowie den folgenden Karten (insgesamt 6)
-        auftaucht:`;
-    
-    return createParagraph('exerciseIntro', textNode);
-    
-}
+const INTRO = `Denke Dir nun bitte eine Zahl zwischen 1 und 63
+    aus und beantworte mir, ob sie sich auf der unten
+    dargestellten sowie den folgenden Karten (insgesamt 6)
+    auftaucht:`;
+const PARAGRAPH_INTRO = createParagraph('exerciseIntro', INTRO);
 
-function getParagraphExerciseQuestion() {
+const OUTRO = `Ist Deine ausgedachte Zahl auf der obigen Karte dabei?`;
+const PARAGRAPH_OUTRO = createParagraph('exerciseQuestion', OUTRO);
 
-    const textNode = `Ist Deine ausgedachte Zahl auf der obigen Karte dabei?`;
-    
-    return createParagraph('exerciseQuestion', textNode);
-    
-}
-
-function getParagraphNoResult() {
-
-    const textNode = `Warum so geheimnisvoll?`;
-    
-    return createParagraph('result', textNode);
-    
-}
-
-function getParagraphResult() {
-
-    const textNode = `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`;
-    
-    return createParagraph('result', textNode);
-    
-}
+const NO_RESULT = `Warum so geheimnisvoll?`;
+const PARAGRAPH_NO_RESULT = createParagraph('result', NO_RESULT);
 
 function createButton(id, string) {
 
-    let button = document.createElement('button');
-    button.setAttribute('class', 'button');
-    button.setAttribute('id', id);
-    button.setAttribute('type', 'button');
-    const textValue = document.createTextNode(string);
-    button.appendChild(textValue);
-    return button;
+    const BUTTON = document.createElement('button');
+    BUTTON.setAttribute('class', 'button');
+    BUTTON.setAttribute('id', id);
+    BUTTON.setAttribute('type', 'button');
+    const TEXT_VALUE = document.createTextNode(string);
+    BUTTON.appendChild(TEXT_VALUE);
+    return BUTTON;
     
 }
 
-function setButtons() {
+const BUTTON_YES = createButton('buttonYes', 'Ja');
+const BUTTON_NO = createButton('buttonNo', 'Nein');
+const BUTTON_AGAIN = createButton('buttonAgain', 'Nochmal');
 
-    buttonYes = createButton('buttonYes', 'Ja');
-    buttonNo = createButton('buttonNo', 'Nein');
-    buttonAgain = createButton('buttonAgain', 'Nochmal');
+const LEVEL_COUNTER = function() {
+    
+    let count = 1;
+
+    this.getCount = function() {
+        
+        return count;
+        
+    };
+
+    this.setCount = function(value) {
+        
+        return count = value;
+        
+    };
+
+    this.increase = function() {
+        
+        count++;
+        
+    };
+   
+};
+
+const LEVEL = new LEVEL_COUNTER();
+
+function getLevel() {
+
+    return LEVEL.getCount();
     
 }
 
-function runGame(htmlElementId, userInput) {
+function setLevel(value) {
+
+    return LEVEL.setCount(value);
+    
+}
+
+function increaseLevel() {
+
+    return LEVEL.increase();
+    
+}
+
+const SECRET_NUMBER_CALCULATOR = function() {
+    
+    let count = 0;
+
+    this.getCount = function() {
+        
+        return count;
+        
+    };
+
+    this.setCount = function(value) {
+        
+        return count = value;
+        
+    };
+
+    this.increase = function(number) {
+        
+        count += Number(number);
+        
+    };
+   
+};
+
+const SECRET_NUMBER = new SECRET_NUMBER_CALCULATOR();
+
+function getSecretNumber() {
+
+    return SECRET_NUMBER.getCount();
+    
+}
+
+function setSecretNumber(value) {
+
+    return SECRET_NUMBER.setCount(value);
+    
+}
+
+function increaseSecretNumber(number) {
+
+    return SECRET_NUMBER.increase(number);
+    
+}
+
+function runGame(htmlElementId, userInputYes) {
 
     switch (getLevel()) {
         
         case 1:
-            setSecretNumber(htmlElementId, 0);
-            showHtmlElement(paragraphExerciseIntro);
+            console.clear();
+            setSecretNumber(0);
+            showHtmlElement(PARAGRAPH_INTRO);
             if (!getHtmlElementById(htmlElementId).childNodes[0]) {
                 
-                appendChildElement(htmlElementId, card1);
+                appendChildElement(htmlElementId, CARD_1);
                 
             } else {
                 
-                replaceChildElement(htmlElementId, card1);
+                replaceChildElement(htmlElementId, CARD_1);
                 
             }
-            showHtmlElement(paragraphExerciseQuestion);
-            showHtmlElement(buttonYes);
-            showHtmlElement(buttonNo);
-            hideHtmlElement(buttonAgain);
-            setLevel(); // 2
+            showHtmlElement(PARAGRAPH_OUTRO);
+            showHtmlElement(BUTTON_YES);
+            showHtmlElement(BUTTON_NO);
+            hideHtmlElement(BUTTON_AGAIN);
+            increaseLevel(); // 2
             break;
         
         case 2:
-            setSecretNumber(userInput, getNumbersCard1()[0]);
-            replaceChildElement(htmlElementId, card2);
-            setLevel(); // 3
+            if (userInputYes) {
+                
+                increaseSecretNumber(getNumbersCard1()[0]);
+                
+            }
+            replaceChildElement(htmlElementId, CARD_2);
+            increaseLevel(); // 3
             break;
         
         case 3:
-            setSecretNumber(userInput, getNumbersCard2()[0]);
-            replaceChildElement(htmlElementId, card3);
-            setLevel(); // 4
+            if (userInputYes) {
+                
+                increaseSecretNumber(getNumbersCard2()[0]);
+            
+            }
+            replaceChildElement(htmlElementId, CARD_3);
+            increaseLevel(); // 4
             break;
         
         case 4:
-            setSecretNumber(userInput, getNumbersCard3()[0]);
-            replaceChildElement(htmlElementId, card4);
-            setLevel(); // 5
+            if (userInputYes) {
+                
+                increaseSecretNumber(getNumbersCard3()[0]);
+                
+            }
+            replaceChildElement(htmlElementId, CARD_4);
+            increaseLevel(); // 5
             break;
         
         case 5:
-            setSecretNumber(userInput, getNumbersCard4()[0]);
-            replaceChildElement(htmlElementId, card5);
-            setLevel(); // 6
+            if (userInputYes) {
+                
+                increaseSecretNumber(getNumbersCard4()[0]);
+                
+            }
+            replaceChildElement(htmlElementId, CARD_5);
+            increaseLevel(); // 6
             break;
         
         case 6:
-            setSecretNumber(userInput, getNumbersCard5()[0]);
-            replaceChildElement(htmlElementId, card6);
-            setLevel(); // 7
+            if (userInputYes) {
+                
+                increaseSecretNumber(getNumbersCard5()[0]);
+                
+            }
+            replaceChildElement(htmlElementId, CARD_6);
+            increaseLevel(); // 7
             break;
         
         case 7:
-            setSecretNumber(userInput, getNumbersCard6()[0]);
-            hideHtmlElement(paragraphExerciseIntro);
-            hideHtmlElement(paragraphExerciseQuestion);
-            hideHtmlElement(buttonYes);
-            hideHtmlElement(buttonNo);
-            showHtmlElement(buttonAgain);
+            if (userInputYes) {
+                
+                increaseSecretNumber(getNumbersCard6()[0]);
+                
+            }
+            hideHtmlElement(PARAGRAPH_INTRO);
+            hideHtmlElement(PARAGRAPH_OUTRO);
+            hideHtmlElement(BUTTON_YES);
+            hideHtmlElement(BUTTON_NO);
+            showHtmlElement(BUTTON_AGAIN);
             replaceChildElement(htmlElementId, getResult());
-            setLevel(); // 1
+            setLevel(1);
             break;
             
     }
@@ -379,46 +447,18 @@ function runGame(htmlElementId, userInput) {
 
 function getResult() {
     
+    const RESULT = `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`;
+    const PARAGRAPH_RESULT = createParagraph('result', RESULT);
+
     if (getSecretNumber() > 0) {
         
-        return getParagraphResult();
+        return PARAGRAPH_RESULT;
     
     } else {
         
-        return getParagraphNoResult();
+        return PARAGRAPH_NO_RESULT;
 
     }
-    
-}
-
-
-function setLevel() {
-
-    return (getLevel() < 7) ? level++ : level = 1;
-    
-}
-
-function getLevel() {
-
-    return !level ? (level = 1) : level;
-    
-}
-
-function setSecretNumber(userInputYes, number) {
-
-    if (LOGGING_ENABLED) {
-        
-        console.log(`@setSecretNumber(): number: ${Number(number)}`);
-        
-    }
-    
-    return userInputYes && Number(number) ? secretNumber += Number(number) : getSecretNumber();
-    
-}
-
-function getSecretNumber() {
-
-    return !secretNumber || (getLevel() === 1) ? secretNumber = 0 : secretNumber;
     
 }
 
@@ -435,57 +475,57 @@ function getHtmlElementById(htmlElementId) {
 
 function appendChildElement(htmlElementId, childElement) {
 
-    const htmlElement = getHtmlElementById(htmlElementId);
+    const HTML_ELEMENT = getHtmlElementById(htmlElementId);
     
-    return htmlElement.appendChild(childElement);
+    return HTML_ELEMENT.appendChild(childElement);
     
 }
 
 function replaceChildElement(htmlElementId, newChildElement) {
 
-    const htmlElement = getHtmlElementById(htmlElementId);
-    const firstChildNode = htmlElement.childNodes[0];
+    const HTML_ELEMENT = getHtmlElementById(htmlElementId);
+    const FIRST_CHILD_NODE = HTML_ELEMENT.childNodes[0];
     
-    return htmlElement.replaceChild(newChildElement, firstChildNode);
+    return HTML_ELEMENT.replaceChild(newChildElement, FIRST_CHILD_NODE);
     
 }
 
 function showHtmlElement(htmlElementId) {
 
-    const htmlElement = getHtmlElementById(htmlElementId);
+    const HTML_ELEMENT = getHtmlElementById(htmlElementId);
     
     if (LOGGING_ENABLED) {
         
-        console.log(`@showHtmlElement(): htmlElement: ${htmlElement}`);
+        console.log(`@showHtmlElement(): HTML_ELEMENT: ${HTML_ELEMENT}`);
     
     }
     
-    if (htmlElement.getAttribute('type') === 'button') {
+    if (HTML_ELEMENT.getAttribute('type') === 'button') {
         
-        return htmlElement.style.display = 'inline-block';
+        return HTML_ELEMENT.style.display = 'inline-block';
         
     }
     
-    return htmlElement.style.visibility = 'visible';
+    return HTML_ELEMENT.style.visibility = 'visible';
     
 }
 
 function hideHtmlElement(htmlElementId) {
 
-    const htmlElement = getHtmlElementById(htmlElementId);
+    const HTML_ELEMENT = getHtmlElementById(htmlElementId);
     
     if (LOGGING_ENABLED) {
         
-        console.log(`@hideHtmlElement(): htmlElement: ${htmlElement}`);
+        console.log(`@hideHtmlElement(): HTML_ELEMENT: ${HTML_ELEMENT}`);
         
     }
     
-    if (htmlElement.getAttribute('type') === 'button') {
+    if (HTML_ELEMENT.getAttribute('type') === 'button') {
         
-        return htmlElement.style.display = 'none';
+        return HTML_ELEMENT.style.display = 'none';
         
     }
     
-    return htmlElement.style.visibility = 'hidden';
+    return HTML_ELEMENT.style.visibility = 'hidden';
     
 }
