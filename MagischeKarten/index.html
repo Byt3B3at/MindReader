@@ -50,27 +50,32 @@
                 <!--
                     window.onload = function() {
 
-                        appendChildElement('textArea1', PARAGRAPH_INTRO);
-                        appendChildElement('textArea2', PARAGRAPH_OUTRO);
+                        const textArea1 = DOCUMENT.getElementById('textArea1');
+                        appendChildElement(textArea1, PARAGRAPH_INTRO);
                         
-                        runGame('tableArea1', false);
+                        const textArea2 = DOCUMENT.getElementById('textArea2');
+                        appendChildElement(textArea2, PARAGRAPH_OUTRO);
                         
-                        appendChildElement('buttonArea1', BUTTON_YES);
+                        const tableArea1 = DOCUMENT.getElementById('tableArea1');
+                        runGame(tableArea1, false);
+                        
+                        const buttonArea1 = DOCUMENT.getElementById('buttonArea1');
+                        appendChildElement(buttonArea1, BUTTON_YES);
                         buttonYes.addEventListener('click', function() {
 
-                            runGame('tableArea1', true);
+                            runGame(tableArea1, true);
                             
                         });
-                        appendChildElement('buttonArea1', BUTTON_NO);
+                        appendChildElement(buttonArea1, BUTTON_NO);
                         buttonNo.addEventListener('click', function() {
 
-                            runGame('tableArea1', false);
+                            runGame(tableArea1, false);
                             
                         });
-                        appendChildElement('buttonArea1', BUTTON_AGAIN);
+                        appendChildElement(buttonArea1, BUTTON_AGAIN);
                         buttonAgain.addEventListener('click', function() {
 
-                            runGame('tableArea1', false);
+                            runGame(tableArea1, false);
                             
                         });
                         
@@ -79,6 +84,7 @@
                     }
                 //-->
                 </script>
-    <noscript>Either your browser does not support JavaScript or you disabled it.</noscript>
+    <noscript>Either your browser does not support JavaScript
+        or you disabled it.</noscript>
 </body>
 </html>

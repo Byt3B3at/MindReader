@@ -14,49 +14,91 @@
  *              result is his guessed number.
  */
 
-const LOGGING_ENABLED = false;
+const LOGGING_ENABLED = true;
+
+const DOCUMENT = document;
 
 class MagicCard {
     
-    constructor(cardNumbers, htmlElementId) {
+    constructor(htmlElementId, cardNumbers) {
         
-        this.cardNumbers = cardNumbers;
         this.htmlElementId = htmlElementId;
+        this.cardNumbers = cardNumbers;
         
     }
 
-    get tableArray() {
+    get cardNumberTable() {
         
-        return this.createTableArray();
+        return this.createCardNumberTable();
         
     }
 
-    createTableArray() {
+    createCardNumberTable() {
 
-        const TABLE = document.createElement('table');
+        const HTML_ELEMENT_ID = this.htmlElementId;
+        const CARD_NUMBERS = this.cardNumbers;
+        
+        const TABLE = DOCUMENT.createElement('table');
         TABLE.setAttribute('class', 'table');
-        TABLE.setAttribute('id', this.htmlElementId);
-        
-        const TABLE_BODY = document.createElement('tbody');
-        
-        this.cardNumbers.forEach(function(rowData) {
+        TABLE.setAttribute('id', HTML_ELEMENT_ID);
+        const TABLE_BODY = DOCUMENT.createElement('tbody');
+        CARD_NUMBERS.forEach(function(rowData) {
 
-            const ROW = document.createElement('tr');
-            
-            rowData.forEach(function(cellData) {
+            const ROW = DOCUMENT.createElement('tr');
+            const ROW_DATA = rowData;
+            ROW_DATA.forEach(function(cellData) {
 
-                const CELL = document.createElement('td');
-                CELL.appendChild(document.createTextNode(cellData));
+                const CELL = DOCUMENT.createElement('td');
+                const CELL_DATA = cellData;
+                CELL.appendChild(DOCUMENT.createTextNode(CELL_DATA));
                 ROW.appendChild(CELL);
+                
             });
+            
             TABLE_BODY.appendChild(ROW);
+            
         });
-        TABLE.appendChild(TABLE_BODY);
         
+        TABLE.appendChild(TABLE_BODY);
         return TABLE;
+        
     }
     
  }
+
+function sliceNumbers(numbers){
+    
+    const cachedNumbers = numbers;
+    
+    return [
+        [
+            cachedNumbers.slice(0, 4).join(', ')
+        ], [
+            cachedNumbers.slice(4, 8).join(', ')
+        ], [
+            cachedNumbers.slice(8, 12).join(', ')
+        ], [
+            cachedNumbers.slice(12, 16).join(', ')
+        ], [
+            cachedNumbers.slice(16, 20).join(', ')
+        ], [
+            cachedNumbers.slice(20, 24).join(', ')
+        ], [
+            cachedNumbers.slice(24, 28).join(', ')
+        ], [
+            cachedNumbers.slice(28).join(', ')
+        ]
+    ];
+    
+}
+
+function getCard(id, numbers) {
+    
+    const MAGIC_CARD = new MagicCard(id, sliceNumbers(numbers)).cardNumberTable;
+    
+    return MAGIC_CARD;
+    
+}
 
 const NUMBERS_CARD_1 = 
     
@@ -66,45 +108,9 @@ const NUMBERS_CARD_1 =
         '57', '59', '61', '63'
     ];
 
-function sliceArray(array){
-    
-    return [
-        [
-            array.slice(0, 4).join(', ')
-        ], [
-            array.slice(4, 8).join(', ')
-        ], [
-            array.slice(8, 12).join(', ')
-        ], [
-            array.slice(12, 16).join(', ')
-        ], [
-            array.slice(16, 20).join(', ')
-        ], [
-            array.slice(20, 24).join(', ')
-        ], [
-            array.slice(24, 28).join(', ')
-        ], [
-            array.slice(28).join(', ')
-        ]
-    ];
-    
-}
-
-function setCard(array, id) {
-    
-    return new MagicCard(sliceArray(array), id).tableArray;
-    
-}
-
 function getNumbersCard1() {
     
     return NUMBERS_CARD_1;
-    
-}
-
-function getCard1() {
-    
-    return card1;
     
 }
 
@@ -122,12 +128,6 @@ function getNumbersCard2() {
     
 }
 
-function getCard2() {
-    
-    return card2;
-    
-}
-
 const NUMBERS_CARD_3 =
     
     [
@@ -139,12 +139,6 @@ const NUMBERS_CARD_3 =
 function getNumbersCard3() {
     
     return NUMBERS_CARD_3;
-    
-}
-
-function getCard3() {
-    
-    return card3;
     
 }
 
@@ -162,12 +156,6 @@ function getNumbersCard4() {
     
 }
 
-function getCard4() {
-    
-    return card4;
-    
-}
-
 const NUMBERS_CARD_5 =
     [
         '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
@@ -178,12 +166,6 @@ const NUMBERS_CARD_5 =
 function getNumbersCard5() {
     
     return NUMBERS_CARD_5;
-    
-}
-
-function getCard5() {
-    
-    return card5;
     
 }
     
@@ -200,26 +182,61 @@ function getNumbersCard6() {
     
 }
 
-function getCard6() {
+
+const CARD_1 = getCard('card1', getNumbersCard1());
+
+function getCard1() {
     
-    return card6;
+    return CARD_1;
     
 }
 
-const CARD_1 = setCard(getNumbersCard1(), 'card1');
-const CARD_2 = setCard(getNumbersCard2(), 'card2');
-const CARD_3 = setCard(getNumbersCard3(), 'card3');
-const CARD_4 = setCard(getNumbersCard4(), 'card4');
-const CARD_5 = setCard(getNumbersCard5(), 'card5');
-const CARD_6 = setCard(getNumbersCard6(), 'card6');
+const CARD_2 = getCard('card2', getNumbersCard2());
 
-function createParagraph(id, string) {
+function getCard2() {
     
-    const PARAGRAPH = document.createElement('p');
+    return CARD_2;
+    
+}
+
+const CARD_3 = getCard('card3', getNumbersCard3());
+
+function getCard3() {
+    
+    return CARD_3;
+    
+}
+
+const CARD_4 = getCard('card4', getNumbersCard4());
+
+function getCard4() {
+    
+    return CARD_4;
+    
+}
+
+const CARD_5 = getCard('card5', getNumbersCard5());
+
+function getCard5() {
+    
+    return CARD_5;
+    
+}
+
+const CARD_6 = getCard('card6', getNumbersCard6());
+
+function getCard6() {
+    
+    return CARD_6;
+    
+}
+
+function createParagraphElement(id, string) {
+    
+    const PARAGRAPH = DOCUMENT.createElement('p');
     PARAGRAPH.setAttribute('class', 'p');
     PARAGRAPH.setAttribute('id', id);
-    const TEXT_VALUE = document.createTextNode(string);
-    PARAGRAPH.appendChild(TEXT_VALUE);
+    PARAGRAPH.appendChild(DOCUMENT.createTextNode(string));
     return PARAGRAPH;
     
 }
@@ -228,29 +245,28 @@ const INTRO = `Denke Dir nun bitte eine Zahl zwischen 1 und 63
     aus und beantworte mir, ob sie sich auf der unten
     dargestellten sowie den folgenden Karten (insgesamt 6)
     auftaucht:`;
-const PARAGRAPH_INTRO = createParagraph('exerciseIntro', INTRO);
+const PARAGRAPH_INTRO = createParagraphElement('exerciseIntro', INTRO);
 
 const OUTRO = `Ist Deine ausgedachte Zahl auf der obigen Karte dabei?`;
-const PARAGRAPH_OUTRO = createParagraph('exerciseQuestion', OUTRO);
+const PARAGRAPH_OUTRO = createParagraphElement('exerciseQuestion', OUTRO);
 
 const NO_RESULT = `Warum so geheimnisvoll?`;
-const PARAGRAPH_NO_RESULT = createParagraph('result', NO_RESULT);
+const PARAGRAPH_NO_RESULT = createParagraphElement('result', NO_RESULT);
 
-function createButton(id, string) {
+function createButtonElement(id, string) {
 
-    const BUTTON = document.createElement('button');
+    const BUTTON = DOCUMENT.createElement('button');
     BUTTON.setAttribute('class', 'button');
     BUTTON.setAttribute('id', id);
     BUTTON.setAttribute('type', 'button');
-    const TEXT_VALUE = document.createTextNode(string);
-    BUTTON.appendChild(TEXT_VALUE);
+    BUTTON.appendChild(DOCUMENT.createTextNode(string));
     return BUTTON;
     
 }
 
-const BUTTON_YES = createButton('buttonYes', 'Ja');
-const BUTTON_NO = createButton('buttonNo', 'Nein');
-const BUTTON_AGAIN = createButton('buttonAgain', 'Nochmal');
+const BUTTON_YES = createButtonElement('buttonYes', 'Ja');
+const BUTTON_NO = createButtonElement('buttonNo', 'Nein');
+const BUTTON_AGAIN = createButtonElement('buttonAgain', 'Nochmal');
 
 const LEVEL_COUNTER = function() {
     
@@ -340,21 +356,26 @@ function increaseSecretNumber(number) {
     
 }
 
-function runGame(htmlElementId, userInputYes) {
+function runGame(htmlElement, userInputYes) {
 
-    switch (getLevel()) {
+    const LEVEL = getLevel();    
+    switch (LEVEL) {
         
         case 1:
-            console.clear();
+            if (LOGGING_ENABLED) {
+                
+                console.clear();
+                
+            }
             setSecretNumber(0);
             showHtmlElement(PARAGRAPH_INTRO);
-            if (!getHtmlElementById(htmlElementId).childNodes[0]) {
+            if (!htmlElement.childNodes[0]) {
                 
-                appendChildElement(htmlElementId, CARD_1);
+                appendChildElement(htmlElement, getCard1());
                 
             } else {
                 
-                replaceChildElement(htmlElementId, CARD_1);
+                replaceChildElement(htmlElement, getCard1());
                 
             }
             showHtmlElement(PARAGRAPH_OUTRO);
@@ -370,7 +391,7 @@ function runGame(htmlElementId, userInputYes) {
                 increaseSecretNumber(getNumbersCard1()[0]);
                 
             }
-            replaceChildElement(htmlElementId, CARD_2);
+            replaceChildElement(htmlElement, getCard2());
             increaseLevel(); // 3
             break;
         
@@ -380,7 +401,7 @@ function runGame(htmlElementId, userInputYes) {
                 increaseSecretNumber(getNumbersCard2()[0]);
             
             }
-            replaceChildElement(htmlElementId, CARD_3);
+            replaceChildElement(htmlElement, getCard3());
             increaseLevel(); // 4
             break;
         
@@ -390,7 +411,7 @@ function runGame(htmlElementId, userInputYes) {
                 increaseSecretNumber(getNumbersCard3()[0]);
                 
             }
-            replaceChildElement(htmlElementId, CARD_4);
+            replaceChildElement(htmlElement, getCard4());
             increaseLevel(); // 5
             break;
         
@@ -400,7 +421,7 @@ function runGame(htmlElementId, userInputYes) {
                 increaseSecretNumber(getNumbersCard4()[0]);
                 
             }
-            replaceChildElement(htmlElementId, CARD_5);
+            replaceChildElement(htmlElement, getCard5());
             increaseLevel(); // 6
             break;
         
@@ -410,7 +431,7 @@ function runGame(htmlElementId, userInputYes) {
                 increaseSecretNumber(getNumbersCard5()[0]);
                 
             }
-            replaceChildElement(htmlElementId, CARD_6);
+            replaceChildElement(htmlElement, getCard6());
             increaseLevel(); // 7
             break;
         
@@ -425,7 +446,7 @@ function runGame(htmlElementId, userInputYes) {
             hideHtmlElement(BUTTON_YES);
             hideHtmlElement(BUTTON_NO);
             showHtmlElement(BUTTON_AGAIN);
-            replaceChildElement(htmlElementId, getResult());
+            replaceChildElement(htmlElement, getResult());
             setLevel(1);
             break;
             
@@ -433,7 +454,7 @@ function runGame(htmlElementId, userInputYes) {
     
     if (LOGGING_ENABLED) {
         
-        console.log(`@runGame(): level: ${getLevel()}`);
+        console.log(`@runGame(): level: ${LEVEL}`);
         
     }
     
@@ -448,7 +469,7 @@ function runGame(htmlElementId, userInputYes) {
 function getResult() {
     
     const RESULT = `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`;
-    const PARAGRAPH_RESULT = createParagraph('result', RESULT);
+    const PARAGRAPH_RESULT = createParagraphElement('result', RESULT);
 
     if (getSecretNumber() > 0) {
         
@@ -462,70 +483,52 @@ function getResult() {
     
 }
 
-function getHtmlElementById(htmlElementId) {
+function appendChildElement(htmlElement, childElement) {
 
-    if (document.getElementById(htmlElementId) !== null) {
-        
-        return document.getElementById(htmlElementId);
-        
-    }
-    return htmlElementId;
+    return htmlElement.appendChild(childElement);
     
 }
 
-function appendChildElement(htmlElementId, childElement) {
+function replaceChildElement(htmlElement, childElement) {
 
-    const HTML_ELEMENT = getHtmlElementById(htmlElementId);
+    const FIRST_CHILD_NODE = htmlElement.childNodes[0];
     
-    return HTML_ELEMENT.appendChild(childElement);
-    
-}
-
-function replaceChildElement(htmlElementId, newChildElement) {
-
-    const HTML_ELEMENT = getHtmlElementById(htmlElementId);
-    const FIRST_CHILD_NODE = HTML_ELEMENT.childNodes[0];
-    
-    return HTML_ELEMENT.replaceChild(newChildElement, FIRST_CHILD_NODE);
+    return htmlElement.replaceChild(childElement, FIRST_CHILD_NODE);
     
 }
 
-function showHtmlElement(htmlElementId) {
+function showHtmlElement(htmlElement) {
 
-    const HTML_ELEMENT = getHtmlElementById(htmlElementId);
-    
     if (LOGGING_ENABLED) {
         
-        console.log(`@showHtmlElement(): HTML_ELEMENT: ${HTML_ELEMENT}`);
+        console.log(`@showHtmlElement(): htmlElement: ${htmlElement}`);
     
     }
     
-    if (HTML_ELEMENT.getAttribute('type') === 'button') {
+    if (htmlElement.getAttribute('type') === 'button') {
         
-        return HTML_ELEMENT.style.display = 'inline-block';
+        return htmlElement.style.display = 'inline-block';
         
     }
     
-    return HTML_ELEMENT.style.visibility = 'visible';
+    return htmlElement.style.visibility = 'visible';
     
 }
 
-function hideHtmlElement(htmlElementId) {
+function hideHtmlElement(htmlElement) {
 
-    const HTML_ELEMENT = getHtmlElementById(htmlElementId);
-    
     if (LOGGING_ENABLED) {
         
-        console.log(`@hideHtmlElement(): HTML_ELEMENT: ${HTML_ELEMENT}`);
+        console.log(`@hideHtmlElement(): htmlElement: ${htmlElement}`);
         
     }
     
-    if (HTML_ELEMENT.getAttribute('type') === 'button') {
+    if (htmlElement.getAttribute('type') === 'button') {
         
-        return HTML_ELEMENT.style.display = 'none';
+        return htmlElement.style.display = 'none';
         
     }
     
-    return HTML_ELEMENT.style.visibility = 'hidden';
+    return htmlElement.style.visibility = 'hidden';
     
 }
