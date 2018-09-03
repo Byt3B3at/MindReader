@@ -14,7 +14,7 @@
  *              result is his guessed number.
  */
 
-const LOGGING_ENABLED = true;
+const LOGGING_ENABLED = false;
 
 const DOCUMENT = document;
 
@@ -248,7 +248,7 @@ const INTRO = `Denke Dir nun bitte eine Zahl zwischen 1 und 63
 const PARAGRAPH_INTRO = createParagraphElement('exerciseIntro', INTRO);
 
 const OUTRO = `Ist Deine ausgedachte Zahl auf der obigen Karte dabei?`;
-const PARAGRAPH_OUTRO = createParagraphElement('exerciseQuestion', OUTRO);
+const PARAGRAPH_OUTRO = createParagraphElement('exerciseOutro', OUTRO);
 
 const NO_RESULT = `Warum so geheimnisvoll?`;
 const PARAGRAPH_NO_RESULT = createParagraphElement('result', NO_RESULT);
