@@ -1,90 +1,77 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset='UTF-8' />
-<meta
-    content='width=device-width, initial-scale=1'
-    name='viewport'
-/>
-<meta
-    content='magisch, magischekarten, kartenspiel, kartentrick, zaubertrick'
-    name='keywords'
-/>
-<meta
-    content='Magisches Kartenspiel - Ich errate eine von Dir ausgedachte Zahl!'
-    name='description'
-/>
-<meta
-    content='Marcus Freund'
-    name='author'
-/>
-<title>Magische Karten</title>
-<script src=script.js></script>
-<link
-    rel=stylesheet
-    href=styles.css
-    media=screen
-/>
+    <meta charset='UTF-8' />
+    <meta content='magisch, kartentrick, magic, cardtrick' name='keywords' />
+    <meta content='Magisches Kartenspiel - Ich errate eine von Dir ausgedachte Zahl!' name='description' />
+    <meta content='MFausB' name='author' />
+    <meta content='width=device-width, initial-scale=1' name='viewport' />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' integrity='sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT'
+        crossorigin='anonymous'></script>
+    <script>
+        window.jQuery
+            || document
+                .write('<script src="libs/jquery-3.3.1.js" integrity="sha384-fJU6sGmyn07b+uD1nMk7/iSb4yvaowcueiQhfVgQuD98rfva8mcr1eSvjchfpMrH" crossorigin="anonymous"><\/script>');
+    </script>
+    <script src='script.js' integrity='sha384-XcAIVzDZga+bbiuDO59T4ImvS4YXA1Yq4vvvVAZpr87aXJLn2hnJUc37nWB8jW+V'
+        crossorigin='anonymous'></script>
+    <link rel='stylesheet' href='styles.css' integrity='sha384-59tvt95pXrPjBMTXqnkUq4U+GUgUSjdHLTkusm/uhOIRPBplbfLHisf8uoF0npu4'
+        crossorigin='anonymous' />
+    <title>Magische Karten</title>
 </head>
+
 <body>
     <div class='main'>
         <span class='signWord'>Magische Karten</span>
-        <div
-            class='textArea'
-            id='textArea1'
-        ></div>
-        <div
-            class='tableArea'
-            id='tableArea1'
-        ></div>
-        <div
-            class='textArea'
-            id='textArea2'
-        ></div>
-        <div
-            class='buttonArea'
-            id='buttonArea1'
-        ></div>
+        <div class='textArea' id='textArea1'></div>
+        <div class='tableArea' id='tableArea1'></div>
+        <div class='textArea' id='textArea2'></div>
+        <div class='buttonArea' id='buttonArea1'></div>
     </div>
     <script>
-                <!--
-                    window.onload = function() {
+    < !--
+            window.onload = function() {
 
-                        const textArea1 = DOCUMENT.getElementById('textArea1');
-                        appendChildElement(textArea1, PARAGRAPH_INTRO);
-                        
-                        const textArea2 = DOCUMENT.getElementById('textArea2');
-                        appendChildElement(textArea2, PARAGRAPH_OUTRO);
-                        
-                        const tableArea1 = DOCUMENT.getElementById('tableArea1');
-                        runGame(tableArea1, false);
-                        
-                        const buttonArea1 = DOCUMENT.getElementById('buttonArea1');
-                        appendChildElement(buttonArea1, BUTTON_YES);
-                        buttonYes.addEventListener('click', function() {
+                const textArea1 = DOCUMENT.getElementById('textArea1');
+                textArea1.appendChild(PARAGRAPH_INTRO);
 
-                            runGame(tableArea1, true);
-                            
-                        });
-                        appendChildElement(buttonArea1, BUTTON_NO);
-                        buttonNo.addEventListener('click', function() {
+                const textArea2 = DOCUMENT.getElementById('textArea2');
+                textArea2.appendChild(PARAGRAPH_OUTRO);
 
-                            runGame(tableArea1, false);
-                            
-                        });
-                        appendChildElement(buttonArea1, BUTTON_AGAIN);
-                        buttonAgain.addEventListener('click', function() {
+                const tableArea1 = DOCUMENT.getElementById('tableArea1');
+                runGame(tableArea1, false);
 
-                            runGame(tableArea1, false);
-                            
-                        });
-                        
-                        hideHtmlElement(buttonAgain);
-                        
-                    }
-                //-->
-                </script>
-    <noscript>Either your browser does not support JavaScript
-        or you disabled it.</noscript>
+                const buttonArea1 = DOCUMENT.getElementById('buttonArea1');
+                buttonArea1.appendChild(BUTTON_YES);
+                buttonYes.addEventListener('click', function () {
+
+                    runGame(tableArea1, true);
+
+                });
+                buttonArea1.appendChild(BUTTON_NO);
+                buttonNo.addEventListener('click', function () {
+
+                    runGame(tableArea1, false);
+
+                });
+                buttonArea1.appendChild(BUTTON_AGAIN);
+                buttonAgain.addEventListener('click', function () {
+
+                    runGame(tableArea1, false);
+
+                });
+
+                hideHtmlElement(buttonAgain);
+
+            }
+        -->
+    </script>
+    <noscript>
+        Um den vollen Funktionsumfang dieser Webseite zu erfahren, benötigen
+        Sie JavaScript. Hier finden Sie die <a href='https://www.enable-javascript.com/de/' target='_blank'>Anleitung
+            wie Sie JavaScript in Ihrem Browser einschalten</a>.
+    </noscript>
 </body>
+
 </html>
