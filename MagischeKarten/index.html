@@ -10,12 +10,14 @@
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' integrity='sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT'
         crossorigin='anonymous'></script>
     <script>
-        window.jQuery
-            || document
-                .write('<script src="libs/jquery-3.3.1.js" integrity="sha384-fJU6sGmyn07b+uD1nMk7/iSb4yvaowcueiQhfVgQuD98rfva8mcr1eSvjchfpMrH" crossorigin="anonymous"><\/script>');
+        window.jQuery ||
+            document
+            .write(
+                '<script src="libs/jquery-3.3.1.js" integrity="sha384-fJU6sGmyn07b+uD1nMk7/iSb4yvaowcueiQhfVgQuD98rfva8mcr1eSvjchfpMrH" crossorigin="anonymous"><\/script>'
+            );
     </script>
-    <script src='script.js' crossorigin='anonymous'></script>
-    <link rel='stylesheet' href='styles.css' crossorigin='anonymous' />
+    <script src='MagicCardsGame.js'></script>
+    <link rel='stylesheet' href='styles.css' />
     <title>Magische Karten</title>
 </head>
 
@@ -28,41 +30,41 @@
         <div class='buttonArea' id='buttonArea1'></div>
     </div>
     <script>
-    <!--
-            window.onload = function() {
+        <!--
+        window.onload = function () {
 
-                const textArea1 = DOCUMENT.getElementById('textArea1');
-                textArea1.appendChild(PARAGRAPH_INTRO);
+            const textArea1 = DOCUMENT.getElementById('textArea1');
+            textArea1.appendChild(PARAGRAPH_INTRO);
 
-                const textArea2 = DOCUMENT.getElementById('textArea2');
-                textArea2.appendChild(PARAGRAPH_OUTRO);
+            const textArea2 = DOCUMENT.getElementById('textArea2');
+            textArea2.appendChild(PARAGRAPH_OUTRO);
 
-                const tableArea1 = DOCUMENT.getElementById('tableArea1');
+            const tableArea1 = DOCUMENT.getElementById('tableArea1');
+            runGame(tableArea1, false);
+
+            const buttonArea1 = DOCUMENT.getElementById('buttonArea1');
+            buttonArea1.appendChild(BUTTON_YES);
+            buttonYes.addEventListener('click', function () {
+
+                runGame(tableArea1, true);
+
+            });
+            buttonArea1.appendChild(BUTTON_NO);
+            buttonNo.addEventListener('click', function () {
+
                 runGame(tableArea1, false);
 
-                const buttonArea1 = DOCUMENT.getElementById('buttonArea1');
-                buttonArea1.appendChild(BUTTON_YES);
-                buttonYes.addEventListener('click', function () {
+            });
+            buttonArea1.appendChild(BUTTON_AGAIN);
+            buttonAgain.addEventListener('click', function () {
 
-                    runGame(tableArea1, true);
+                runGame(tableArea1, false);
 
-                });
-                buttonArea1.appendChild(BUTTON_NO);
-                buttonNo.addEventListener('click', function () {
+            });
 
-                    runGame(tableArea1, false);
+            hideHtmlElement(buttonAgain);
 
-                });
-                buttonArea1.appendChild(BUTTON_AGAIN);
-                buttonAgain.addEventListener('click', function () {
-
-                    runGame(tableArea1, false);
-
-                });
-
-                hideHtmlElement(buttonAgain);
-
-            }
+        }
         -->
     </script>
     <noscript>
