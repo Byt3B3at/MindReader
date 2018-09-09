@@ -1,100 +1,103 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset='UTF-8' />
-    <meta content='magisch, kartentrick, magic, cardtrick' name='keywords' />
-    <meta content='Magisches Kartenspiel - Ich errate eine von Dir ausgedachte Zahl!' name='description' />
-    <meta content='MFausB' name='author' />
-    <meta content='width=device-width, initial-scale=1' name='viewport' />
-    <link rel='stylesheet' href='styles.css' />
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' integrity='sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT'
-        crossorigin='anonymous'></script>
-    <script>
-        window.jQuery || document.write('<script src="libs/jquery-3.3.1.js"><\/script>')
-    </script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script>
-        window.jQuery.ui || document.write('<script src="libs/jquery-ui.min.js"><\/script>')
-    </script>
-    <script src='MagicCardsGame.js'></script>
-    <title>Magische Karten</title>
-</head>
+    <head>
+        <meta charset='UTF-8' />
+        <meta content='magisch, kartentrick, magic, cardtrick' name='keywords' />
+        <meta content='Magisches Kartenspiel - Ich errate eine von Dir ausgedachte Zahl!' name='description' />
+        <meta content='MFausB' name='author' />
+        <meta content='width=device-width, initial-scale=1' name='viewport' />
 
-<body>
-    <div class="ui-helper-hidden"></div>
+        <link rel='stylesheet' href='styles.css' />
 
-    <div id='main'>
-        <span id='signWord'>Magische Karten</span>
-        <div id='textArea1'></div>
-        <div id='tableArea'></div>
-        <div id='textArea2'></div>
-        <div id='buttonArea'></div>
-    </div>
-    <script>
-        $(document)
-            .ready(function() {
-                if ($(".ui-helper-hidden:first")
-                    .is(":visible") === true) {
-                    $('<link rel="stylesheet" href="css/jquery-ui.min.css" />')
-                        .appendTo('head');
-                }
-            });
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' integrity='sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT'
+            crossorigin='anonymous'></script>
+        <script>
+            window.jQuery || document.write('<script src="libs/jquery-3.3.1.js"><\/script>')
+        </script>
 
-        <!--
-        window.onload = function() {
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha384-Dziy8F2VlJQLMShA6FHWNul/veM9bCkRUaLqr199K94ntO5QUrLJBEbYegdSkkqX"
+            crossorigin="anonymous"></script>
+        <script>
+            window.jQuery.ui || document.write('<script src="libs/jquery-ui.min.js"><\/script>')
+        </script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+            integrity="sha384-Nlo8b0yiGl7Dn+BgLn4mxhIIBU6We7aeeiulNCjHdUv/eKHx59s3anfSUjExbDxn" crossorigin="anonymous">
 
-            $('#signWord')
-                .addClass('load');
-            $('#textArea1')
-                .addClass('load');
-            $('#tableArea')
-                .addClass('load');
-            $('#textArea2')
-                .addClass('load');
-            $('#buttonArea')
-                .addClass('load');
+        <script src='MagicCardsGame.js'></script>
 
-            const textArea1 = DOCUMENT.getElementById('textArea1');
-            textArea1.appendChild(PARAGRAPH_INTRO);
+        <title>Magische Karten</title>
+    </head>
 
-            const textArea2 = DOCUMENT.getElementById('textArea2');
-            textArea2.appendChild(PARAGRAPH_OUTRO);
+    <body>
+        <div class="ui-helper-hidden"></div>
 
-            const tableArea = DOCUMENT.getElementById('tableArea');
-            runGame(tableArea, false);
+        <div id='main'>
+            <span id='signWord'>Magische Karten</span>
+            <div id='textArea1'></div>
+            <div id='tableArea'></div>
+            <div id='textArea2'></div>
+            <div id='buttonArea'></div>
+        </div>
 
-            const buttonArea = DOCUMENT.getElementById('buttonArea');
-            buttonArea.appendChild(BUTTON_YES);
-            buttonYes.addEventListener('click', function() {
+        <script>
+            $(document)
+                .ready(function() {
+                    if ($(".ui-helper-hidden:first").is(":visible") === true) {
+                        $('<link rel="stylesheet" href="css/jquery-ui.min.css" />').appendTo('head');
+                    }
+                });
 
-                runGame(tableArea, true);
+            <!--
+            window.onload = function() {
 
-            });
-            buttonArea.appendChild(BUTTON_NO);
-            buttonNo.addEventListener('click', function() {
+                $('#signWord').addClass('load');
+                $('#textArea1').addClass('load');
+                $('#tableArea').addClass('load');
+                $('#textArea2').addClass('load');
+                $('#buttonArea').addClass('load');
 
+                const textArea1 = DOCUMENT.getElementById('textArea1');
+                textArea1.appendChild(PARAGRAPH_INTRO);
+
+                const textArea2 = DOCUMENT.getElementById('textArea2');
+                textArea2.appendChild(PARAGRAPH_OUTRO);
+
+                const tableArea = DOCUMENT.getElementById('tableArea');
                 runGame(tableArea, false);
 
-            });
-            buttonArea.appendChild(BUTTON_AGAIN);
-            buttonAgain.addEventListener('click', function() {
+                const buttonArea = DOCUMENT.getElementById('buttonArea');
+                buttonArea.appendChild(BUTTON_YES);
+                buttonYes.addEventListener('click', function() {
 
-                runGame(tableArea, false);
+                    runGame(tableArea, true);
 
-            });
+                });
+                buttonArea.appendChild(BUTTON_NO);
+                buttonNo.addEventListener('click', function() {
 
-            hideHtmlElement(buttonAgain);
+                    runGame(tableArea, false);
 
-        }
-        -->
-    </script>
-    <noscript>
-        Um den vollen Funktionsumfang dieser Webseite zu erfahren, benötigen
-        Sie JavaScript. Hier finden Sie die <a href='https://www.enable-javascript.com/de/' target='_blank'>Anleitung
-            wie Sie JavaScript in Ihrem Browser einschalten</a>.
-    </noscript>
-</body>
+                });
+                buttonArea.appendChild(BUTTON_AGAIN);
+                buttonAgain.addEventListener('click', function() {
+
+                    runGame(tableArea, false);
+
+                });
+
+                hideHtmlElement(buttonAgain);
+
+            }
+            -->
+        </script>
+
+        <noscript>
+            Um den vollen Funktionsumfang dieser Webseite zu erfahren, benoetigen Sie JavaScript.
+            Hier finden Sie die <a href='https://www.enable-javascript.com/de/' target='_blank'>
+            Anleitung wie Sie JavaScript in Ihrem Browser einschalten</a>.
+        </noscript>
+
+    </body>
 
 </html>

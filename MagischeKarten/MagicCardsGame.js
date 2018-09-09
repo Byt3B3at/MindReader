@@ -53,11 +53,11 @@ class MagicCard {
         TABLE.setAttribute('class', 'table');
         TABLE.setAttribute('id', HTML_ELEMENT_ID);
         const TABLE_BODY = DOCUMENT.createElement('tbody');
-        CARD_NUMBERS.forEach(function (rowData) {
+        CARD_NUMBERS.forEach(function(rowData) {
 
             const ROW = DOCUMENT.createElement('tr');
             const ROW_DATA = rowData;
-            ROW_DATA.forEach(function (cellData) {
+            ROW_DATA.forEach(function(cellData) {
 
                 const CELL = DOCUMENT.createElement('td');
                 const CELL_DATA = cellData;
@@ -296,7 +296,8 @@ function createParagraphElement(id, string) {
 
 }
 
-const INTRO = `Denke Dir nun bitte eine Zahl zwischen 1 und 63
+const INTRO =
+    `Denke Dir nun bitte eine Zahl zwischen 1 und 63
     aus und beantworte mir, ob sie sich auf der unten
     dargestellten sowie den folgenden Karten (insgesamt 6)
     auftaucht:`;
@@ -323,23 +324,23 @@ const BUTTON_YES = createButtonElement('buttonYes', 'Ja');
 const BUTTON_NO = createButtonElement('buttonNo', 'Nein');
 const BUTTON_AGAIN = createButtonElement('buttonAgain', 'Nochmal');
 
-const LEVEL_COUNTER = function () {
+const LEVEL_COUNTER = function() {
 
     let count = 1;
 
-    this.getCount = function () {
+    this.getCount = function() {
 
         return count;
 
     };
 
-    this.setCount = function (value) {
+    this.setCount = function(value) {
 
         return count = value;
 
     };
 
-    this.increase = function () {
+    this.increase = function() {
 
         count++;
 
@@ -367,23 +368,23 @@ function increaseLevel() {
 
 }
 
-const SECRET_NUMBER_CALCULATOR = function () {
+const SECRET_NUMBER_CALCULATOR = function() {
 
     let count = 0;
 
-    this.getCount = function () {
+    this.getCount = function() {
 
         return count;
 
     };
 
-    this.setCount = function (value) {
+    this.setCount = function(value) {
 
         return count = value;
 
     };
 
-    this.increase = function (number) {
+    this.increase = function(number) {
 
         count += Number(number);
 

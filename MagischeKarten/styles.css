@@ -2,8 +2,8 @@
     font-family: 'Vibur';
     font-style: normal;
     font-weight: 400;
-    src: local('Vibur'), url(https://fonts.gstatic.com/s/vibur/v8/DPEiYwmEzw0QRgTuJDs.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    src: local('Vibur'), url('https://fonts.gstatic.com/s/vibur/v8/DPEiYwmEzw0QRgTuJDs.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 body {
@@ -20,7 +20,12 @@ body {
         max-width: 25vw;
     }
 
-    #card1, #card2, #card3, #card4, #card5, #card6 {
+    #card1,
+    #card2,
+    #card3,
+    #card4,
+    #card5,
+    #card6 {
         font-size: 1.3vw;
     }
 
@@ -29,13 +34,17 @@ body {
         max-width: 18vw;
     }
 
-    #buttonYes, #buttonNo, #buttonAgain {
+    #buttonYes,
+    #buttonNo,
+    #buttonAgain {
         font-size: 1.2vw;
         height: 2.3vw;
         width: 5.7vw;
     }
 
-    #buttonYes:hover, #buttonNo:hover, #buttonAgain:hover {
+    #buttonYes:hover,
+    #buttonNo:hover,
+    #buttonAgain:hover {
         background-color: #0000ff;
     }
 
@@ -56,7 +65,12 @@ body {
         max-width: 53vw;
     }
 
-    #card1, #card2, #card3, #card4, #card5, #card6 {
+    #card1,
+    #card2,
+    #card3,
+    #card4,
+    #card5,
+    #card6 {
         font-size: 2.4vw;
     }
 
@@ -65,7 +79,9 @@ body {
         max-width: 48vw;
     }
 
-    #buttonYes, #buttonNo, #buttonAgain {
+    #buttonYes,
+    #buttonNo,
+    #buttonAgain {
         font-size: 3.2vw;
         height: 8.3vw;
         width: 15.7vw;
@@ -88,7 +104,12 @@ body {
         max-width: 76vw;
     }
 
-    #card1, #card2, #card3, #card4, #card5, #card6 {
+    #card1,
+    #card2,
+    #card3,
+    #card4,
+    #card5,
+    #card6 {
         font-size: 4.5vw;
     }
 
@@ -97,7 +118,9 @@ body {
         max-width: 65vw;
     }
 
-    #buttonYes, #buttonNo, #buttonAgain {
+    #buttonYes,
+    #buttonNo,
+    #buttonAgain {
         font-size: 4.5vw;
         height: 10vw;
         width: 25vw;
@@ -176,7 +199,12 @@ body {
     opacity: 1;
 }
 
-#card1, #card2, #card3, #card4, #card5, #card6 {
+#card1,
+#card2,
+#card3,
+#card4,
+#card5,
+#card6 {
     background: url(img/paper.gif);
     border-radius: 0.8em;
     border-collapse: separate;
@@ -188,7 +216,12 @@ body {
     text-align: center;
 }
 
-#card1, #card2, #card3, #card4, #card5, #card6 td {
+#card1,
+#card2,
+#card3,
+#card4,
+#card5,
+#card6 td {
     line-height: 0.6;
 }
 
@@ -233,7 +266,9 @@ body {
     opacity: 1;
 }
 
-#buttonYes, #buttonNo, #buttonAgain {
+#buttonYes,
+#buttonNo,
+#buttonAgain {
     border-radius: 0.4em;
     box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
     background-color: #004080;
@@ -243,7 +278,9 @@ body {
     margin-right: 0.7em;
 }
 
-#buttonYes:active, #buttonNo:active, #buttonAgain:active {
+#buttonYes:active,
+#buttonNo:active,
+#buttonAgain:active {
     background-color: #0000ff;
     box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
     transform: translateY(4px);
