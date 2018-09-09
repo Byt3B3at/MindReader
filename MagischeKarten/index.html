@@ -10,6 +10,8 @@
 
         <link rel='stylesheet' href='styles.css' />
 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' integrity='sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT'
             crossorigin='anonymous'></script>
         <script>
@@ -58,34 +60,33 @@
                 $('#buttonArea').addClass('load');
 
                 const textArea1 = DOCUMENT.getElementById('textArea1');
-                textArea1.appendChild(PARAGRAPH_INTRO);
+                $("#textArea1").prepend(PARAGRAPH_INTRO);
 
                 const textArea2 = DOCUMENT.getElementById('textArea2');
-                textArea2.appendChild(PARAGRAPH_OUTRO);
+                $("#textArea2").prepend(PARAGRAPH_OUTRO);
 
                 const tableArea = DOCUMENT.getElementById('tableArea');
                 runGame(tableArea, false);
 
                 const buttonArea = DOCUMENT.getElementById('buttonArea');
-                buttonArea.appendChild(BUTTON_YES);
+                $("#buttonArea").prepend(BUTTON_YES);
                 buttonYes.addEventListener('click', function() {
 
                     runGame(tableArea, true);
 
                 });
-                buttonArea.appendChild(BUTTON_NO);
+                $("#buttonArea").append(BUTTON_NO);
                 buttonNo.addEventListener('click', function() {
 
                     runGame(tableArea, false);
 
                 });
-                buttonArea.appendChild(BUTTON_AGAIN);
+                $("#buttonArea").append(BUTTON_AGAIN);
                 buttonAgain.addEventListener('click', function() {
 
                     runGame(tableArea, false);
 
                 });
-
                 hideHtmlElement(buttonAgain);
 
             }

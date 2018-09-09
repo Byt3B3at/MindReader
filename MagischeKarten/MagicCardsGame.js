@@ -2,7 +2,7 @@
  * MagicCardsGame library
  * 
  * @author Marcus Freund
- * @version 1.6.6
+ * @version 1.6.7
  * @description This library offers functions run a magic card game. The game
  *              works as follows: The player is told to think of a number
  *              between 1 and 63. The game starts with a card which displays 32
@@ -60,17 +60,16 @@ class MagicCard {
             ROW_DATA.forEach(function(cellData) {
 
                 const CELL = DOCUMENT.createElement('td');
-                const CELL_DATA = cellData;
-                CELL.appendChild(DOCUMENT.createTextNode(CELL_DATA));
-                ROW.appendChild(CELL);
+                $(CELL).append(DOCUMENT.createTextNode(cellData));
+                $(ROW).append(CELL);
 
             });
 
-            TABLE_BODY.appendChild(ROW);
+            $(TABLE_BODY).append(ROW);
 
         });
 
-        TABLE.appendChild(TABLE_BODY);
+        $(TABLE).append(TABLE_BODY);
         return TABLE;
 
     }
@@ -291,7 +290,7 @@ function createParagraphElement(id, string) {
     const PARAGRAPH = DOCUMENT.createElement('p');
     PARAGRAPH.setAttribute('class', 'p');
     PARAGRAPH.setAttribute('id', id);
-    PARAGRAPH.appendChild(DOCUMENT.createTextNode(string));
+    $(PARAGRAPH).prepend(DOCUMENT.createTextNode(string));
     return PARAGRAPH;
 
 }
@@ -315,7 +314,7 @@ function createButtonElement(id, string) {
     BUTTON.setAttribute('class', 'button');
     BUTTON.setAttribute('id', id);
     BUTTON.setAttribute('type', 'button');
-    BUTTON.appendChild(DOCUMENT.createTextNode(string));
+    $(BUTTON).prepend(DOCUMENT.createTextNode(string));
     return BUTTON;
 
 }
@@ -425,15 +424,7 @@ function runGame(htmlElement, userInputYes) {
             }
             setSecretNumber(0);
             showHtmlElement(PARAGRAPH_INTRO);
-            if (!htmlElement.hasChildNodes()) {
-
-                htmlElement.appendChild(getTableCard1());
-
-            } else {
-
-                htmlElement.replaceChild(getTableCard1(), htmlElement.childNodes[0]);
-
-            }
+            $(htmlElement).empty().append(getTableCard1());
             showHtmlElement(PARAGRAPH_OUTRO);
             showHtmlElement(BUTTON_YES);
             showHtmlElement(BUTTON_NO);
@@ -447,7 +438,7 @@ function runGame(htmlElement, userInputYes) {
                 increaseSecretNumber(getCard1().cardNumbers[0]);
 
             }
-            htmlElement.replaceChild(getTableCard2(), htmlElement.childNodes[0]);
+            $(htmlElement).empty().append(getTableCard2());
             increaseLevel(); // 3
             break;
 
@@ -457,7 +448,7 @@ function runGame(htmlElement, userInputYes) {
                 increaseSecretNumber(getCard2().cardNumbers[0]);
 
             }
-            htmlElement.replaceChild(getTableCard3(), htmlElement.childNodes[0]);
+            $(htmlElement).empty().append(getTableCard3());
             increaseLevel(); // 4
             break;
 
@@ -467,7 +458,7 @@ function runGame(htmlElement, userInputYes) {
                 increaseSecretNumber(getCard3().cardNumbers[0]);
 
             }
-            htmlElement.replaceChild(getTableCard4(), htmlElement.childNodes[0]);
+            $(htmlElement).empty().append(getTableCard4());
             increaseLevel(); // 5
             break;
 
@@ -477,7 +468,7 @@ function runGame(htmlElement, userInputYes) {
                 increaseSecretNumber(getCard4().cardNumbers[0]);
 
             }
-            htmlElement.replaceChild(getTableCard5(), htmlElement.childNodes[0]);
+            $(htmlElement).empty().append(getTableCard5());
             increaseLevel(); // 6
             break;
 
@@ -487,7 +478,7 @@ function runGame(htmlElement, userInputYes) {
                 increaseSecretNumber(getCard5().cardNumbers[0]);
 
             }
-            htmlElement.replaceChild(getTableCard6(), htmlElement.childNodes[0]);
+            $(htmlElement).empty().append(getTableCard6());
             increaseLevel(); // 7
             break;
 
@@ -502,7 +493,7 @@ function runGame(htmlElement, userInputYes) {
             hideHtmlElement(BUTTON_YES);
             hideHtmlElement(BUTTON_NO);
             showHtmlElement(BUTTON_AGAIN);
-            htmlElement.replaceChild(getResult(), htmlElement.childNodes[0]);
+            $(htmlElement).empty().append(getResult());
             setLevel(1);
             break;
 

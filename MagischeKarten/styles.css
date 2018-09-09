@@ -1,16 +1,4 @@
-@font-face {
-    font-family: 'Vibur';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Vibur'), url('https://fonts.gstatic.com/s/vibur/v8/DPEiYwmEzw0QRgTuJDs.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-body {
-    background-color: #29315e;
-}
-
-@media (min-width: 1024px) {
+@media all and (min-width: 1024px) {
     #signWord {
         font-size: 5vw;
     }
@@ -55,7 +43,7 @@ body {
     }
 }
 
-@media (min-width: 450px) and (max-width: 1024px) {
+@media all and (min-width: 450px) and (max-width: 1024px) {
     #signWord {
         font-size: 10vw;
     }
@@ -94,7 +82,7 @@ body {
     }
 }
 
-@media (max-width: 450px) {
+@media all and (max-width: 450px) {
     #signWord {
         font-size: 14vw;
     }
@@ -133,23 +121,31 @@ body {
     }
 }
 
+body {
+    background-color: #29315e;
+}
+
 #main {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
 #signWord {
+    -webkit-animation: neon .08s ease-in-out infinite alternate;
     animation: neon .08s ease-in-out infinite alternate;
     color: #c6e2ff;
-    font-family: Vibur, cursive;
+    font-family: 'Tangerine', serif;
     line-height: 1em;
     margin: auto;
     opacity: 0;
     padding-bottom: 0.05em;
     -webkit-transition: opacity 2s ease-in;
-    -moz-transition: opacity 2s ease-in;
     -o-transition: opacity 2s ease-in;
-    -ms-transition: opacity 2s ease-in;
     transition: opacity 2s ease-in;
 }
 
@@ -164,9 +160,7 @@ body {
 #textArea1 {
     opacity: 0;
     -webkit-transition: opacity 4s ease-in;
-    -moz-transition: opacity 4s ease-in;
     -o-transition: opacity 4s ease-in;
-    -ms-transition: opacity 4s ease-in;
     transition: opacity 4s ease-in;
 }
 
@@ -189,9 +183,7 @@ body {
 #tableArea {
     opacity: 0;
     -webkit-transition: opacity 6s ease-in;
-    -moz-transition: opacity 6s ease-in;
     -o-transition: opacity 6s ease-in;
-    -ms-transition: opacity 6s ease-in;
     transition: opacity 6s ease-in;
 }
 
@@ -209,6 +201,7 @@ body {
     border-radius: 0.8em;
     border-collapse: separate;
     border-spacing: 1em;
+    -webkit-box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
     box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
     color: #294b5e;
     line-height: 1.5;
@@ -228,9 +221,7 @@ body {
 #textArea2 {
     opacity: 0;
     -webkit-transition: opacity 8s ease-in;
-    -moz-transition: opacity 8s ease-in;
     -o-transition: opacity 8s ease-in;
-    -ms-transition: opacity 8s ease-in;
     transition: opacity 8s ease-in;
 }
 
@@ -256,9 +247,7 @@ body {
     margin: auto;
     opacity: 0;
     -webkit-transition: opacity 10s ease-in;
-    -moz-transition: opacity 10s ease-in;
     -o-transition: opacity 10s ease-in;
-    -ms-transition: opacity 10s ease-in;
     transition: opacity 10s ease-in;
 }
 
@@ -270,6 +259,7 @@ body {
 #buttonNo,
 #buttonAgain {
     border-radius: 0.4em;
+    -webkit-box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
     box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
     background-color: #004080;
     color: white;
@@ -282,7 +272,10 @@ body {
 #buttonNo:active,
 #buttonAgain:active {
     background-color: #0000ff;
+    -webkit-box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
     box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
+    -webkit-transform: translateY(4px);
+    -ms-transform: translateY(4px);
     transform: translateY(4px);
 }
 
@@ -291,6 +284,16 @@ body {
     line-height: 1.3;
     margin: auto;
     text-align: center;
+}
+
+@-webkit-keyframes neon {
+    from {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
+    }
+
+    to {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88), 0 0 60px #1e84f2;
+    }
 }
 
 @keyframes neon {
