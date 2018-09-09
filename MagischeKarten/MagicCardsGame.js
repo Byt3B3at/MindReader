@@ -2,7 +2,7 @@
  * MagicCardsGame library
  * 
  * @author Marcus Freund
- * @version 1.6.5
+ * @version 1.6.6
  * @description This library offers functions run a magic card game. The game
  *              works as follows: The player is told to think of a number
  *              between 1 and 63. The game starts with a card which displays 32
