@@ -296,10 +296,7 @@ function createParagraphElement(id, string) {
 }
 
 const INTRO =
-    `Denke Dir nun bitte eine Zahl zwischen 1 und 63
-    aus und beantworte mir, ob sie sich auf der unten
-    dargestellten sowie den folgenden Karten (insgesamt 6)
-    auftaucht:`;
+    `Ueberlege Dir nun bitte eine Zahl zwischen 1 und 63 und sage mir, ob sie sich auf der unten dargestellten sowie den folgenden Zahlenkarten (insgesamt 6) auftaucht:`;
 const PARAGRAPH_INTRO = createParagraphElement('exerciseIntro', INTRO);
 
 const OUTRO = `Ist Deine ausgedachte Zahl auf der obigen Karte dabei?`;
