@@ -333,13 +333,13 @@ function createParagraphElement(id, string) {
 
 }
 
-const INTRO = `Please imagine a number between 1 and 63 now!`;
+const INTRO = `Please think of a number between 1 and 63!`;
 const PARAGRAPH_INTRO = createParagraphElement('exerciseIntro', INTRO);
 
-const OUTRO = `Tell me, does the card above contain your number?`;
+const OUTRO = `Does the above card contain your imaginary number?`;
 const PARAGRAPH_OUTRO = createParagraphElement('exerciseOutro', OUTRO);
 
-const NO_RESULT = `You imagined no number?`;
+const NO_RESULT = `Why so mysterious?`;
 const PARAGRAPH_NO_RESULT = createParagraphElement('result', NO_RESULT);
 
 function createButtonElement(id, string) {
