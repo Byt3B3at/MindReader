@@ -354,9 +354,9 @@ function createButtonElement(id, string) {
 
 }
 
-const BUTTON_YES = createButtonElement('buttonYes', 'Ja');
-const BUTTON_NO = createButtonElement('buttonNo', 'Nein');
-const BUTTON_AGAIN = createButtonElement('buttonAgain', 'Nochmal');
+const BUTTON_YES = createButtonElement('buttonYes', 'Yes');
+const BUTTON_NO = createButtonElement('buttonNo', 'No');
+const BUTTON_AGAIN = createButtonElement('buttonAgain', 'Again');
 
 const LEVEL_COUNTER = function() {
 
