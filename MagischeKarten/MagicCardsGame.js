@@ -1,16 +1,31 @@
 /**
- * MagicCardsGame library
+ * MindReader library
  * 
  * @author Marcus Freund
- * @version 1.6.7
- * @description This library offers functions run a magic card game. The game
- *              works as follows: The player is told to think of a number
- *              between 1 and 63. The game starts with a card which displays 32
- *              numbers and overall 6 cards are shown to him. So he is asked six
- *              times overall if his guessed number is shown on the displayed
- *              cards. If he confirms, the first number of the card is stored
- *              and added to the possible numbers where he confirms too. The
- *              result is his guessed number.
+ * @version 1.6.8
+ * @description This library offers a class, several functions and some variables
+ *              in order to activate the power of the "MindReader".
+ * 
+ *              Without user-interaction (before the game can be run) it does:
+ *              • prepare arrays containing 32 numbers from 1-63 and convert them to tables
+ *              • create "MagicCards" of those tables which will be displayed to the user
+ *              • prepare html paragraphs and buttons
+ *              • functions to show or hide html elements
+ *              • function to control the current level of the game
+ *              • function to determine the guessed number 
+ *              • function to run the game itself based on the current level
+ * 
+ *              When the user interacts (clicks on "yes") it does:
+ *              • saves the first number of the actual "MagicCard" and
+ *              • (if level < 7) increases level and displays the next "MagicCard"
+ *              • (if level = 7) displays the result, sets level back to 1 and offers option to play again
+ * 
+ *              When the user interacts (clicks on "no"):
+ *              • (if level < 7) increases level and displays the next "MagicCard"
+ *              • (if level = 7) displays the result, sets level back to 1 and offers option to play again
+ * 
+ *              When the user interacts (clicks on "again") it does:
+ *              • restart the game
  */
 
 const LOGGING_ENABLED = false;
@@ -60,16 +75,20 @@ class MagicCard {
             ROW_DATA.forEach(function(cellData) {
 
                 const CELL = DOCUMENT.createElement('td');
-                $(CELL).append(DOCUMENT.createTextNode(cellData));
-                $(ROW).append(CELL);
+                $(CELL)
+                    .append(DOCUMENT.createTextNode(cellData));
+                $(ROW)
+                    .append(CELL);
 
             });
 
-            $(TABLE_BODY).append(ROW);
+            $(TABLE_BODY)
+                .append(ROW);
 
         });
 
-        $(TABLE).append(TABLE_BODY);
+        $(TABLE)
+            .append(TABLE_BODY);
         return TABLE;
 
     }
@@ -82,39 +101,47 @@ function sliceNumbers(numbers) {
 
     return [
         [
-            cachedNumbers.slice(0, 4).join(', ')
+            cachedNumbers.slice(0, 4)
+            .join(', ')
         ],
         [
-            cachedNumbers.slice(4, 8).join(', ')
+            cachedNumbers.slice(4, 8)
+            .join(', ')
         ],
         [
-            cachedNumbers.slice(8, 12).join(', ')
+            cachedNumbers.slice(8, 12)
+            .join(', ')
         ],
         [
-            cachedNumbers.slice(12, 16).join(', ')
+            cachedNumbers.slice(12, 16)
+            .join(', ')
         ],
         [
-            cachedNumbers.slice(16, 20).join(', ')
+            cachedNumbers.slice(16, 20)
+            .join(', ')
         ],
         [
-            cachedNumbers.slice(20, 24).join(', ')
+            cachedNumbers.slice(20, 24)
+            .join(', ')
         ],
         [
-            cachedNumbers.slice(24, 28).join(', ')
+            cachedNumbers.slice(24, 28)
+            .join(', ')
         ],
         [
-            cachedNumbers.slice(28).join(', ')
+            cachedNumbers.slice(28)
+            .join(', ')
         ]
     ];
 
 }
 
-const NUMBERS_CARD_1 =
+const NUMBERS_CARD_1 = [
 
-    [
         '01', '03', '05', '07', '09', '11', '13', '15', '17', '19', '21', '23', '25', '27',
         '29', '31', '33', '35', '37', '39', '41', '43', '45', '47', '49', '51', '53', '55',
         '57', '59', '61', '63'
+
     ];
 
 function getNumbersCard1() {
@@ -131,7 +158,8 @@ function getCard1() {
 
 }
 
-const CARD_1_TABLE = getCard1().cardNumberTable;
+const CARD_1_TABLE = getCard1()
+    .cardNumberTable;
 
 function getTableCard1() {
 
@@ -139,12 +167,12 @@ function getTableCard1() {
 
 }
 
-const NUMBERS_CARD_2 =
+const NUMBERS_CARD_2 = [
 
-    [
         '02', '03', '06', '07', '10', '11', '14', '15', '18', '19', '22', '23', '26', '27',
         '30', '31', '34', '35', '38', '39', '42', '43', '46', '47', '50', '51', '54', '55',
         '58', '59', '62', '63'
+
     ];
 
 function getNumbersCard2() {
@@ -161,7 +189,8 @@ function getCard2() {
 
 }
 
-const CARD_2_TABLE = getCard2().cardNumberTable;
+const CARD_2_TABLE = getCard2()
+    .cardNumberTable;
 
 function getTableCard2() {
 
@@ -169,12 +198,12 @@ function getTableCard2() {
 
 }
 
-const NUMBERS_CARD_3 =
+const NUMBERS_CARD_3 = [
 
-    [
         '04', '05', '06', '07', '12', '13', '14', '15', '20', '21', '22', '23', '28', '29',
         '30', '31', '36', '37', '38', '39', '44', '45', '46', '47', '52', '53', '54', '55',
         '60', '61', '62', '63'
+
     ];
 
 function getNumbersCard3() {
@@ -191,7 +220,8 @@ function getCard3() {
 
 }
 
-const CARD_3_TABLE = getCard3().cardNumberTable;
+const CARD_3_TABLE = getCard3()
+    .cardNumberTable;
 
 function getTableCard3() {
 
@@ -199,12 +229,12 @@ function getTableCard3() {
 
 }
 
-const NUMBERS_CARD_4 =
+const NUMBERS_CARD_4 = [
 
-    [
         '08', '09', '10', '11', '12', '13', '14', '15', '24', '25', '26', '27', '28', '29',
         '30', '31', '40', '41', '42', '43', '44', '45', '46', '47', '56', '57', '58', '59',
         '60', '61', '62', '63'
+
     ];
 
 function getNumbersCard4() {
@@ -221,7 +251,8 @@ function getCard4() {
 
 }
 
-const CARD_4_TABLE = getCard4().cardNumberTable;
+const CARD_4_TABLE = getCard4()
+    .cardNumberTable;
 
 function getTableCard4() {
 
@@ -230,9 +261,11 @@ function getTableCard4() {
 }
 
 const NUMBERS_CARD_5 = [
+
     '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
     '30', '31', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
     '60', '61', '62', '63'
+
 ];
 
 function getNumbersCard5() {
@@ -249,7 +282,8 @@ function getCard5() {
 
 }
 
-const CARD_5_TABLE = getCard5().cardNumberTable;
+const CARD_5_TABLE = getCard5()
+    .cardNumberTable;
 
 function getTableCard5() {
 
@@ -258,9 +292,11 @@ function getTableCard5() {
 }
 
 const NUMBERS_CARD_6 = [
+
     '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45',
     '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
     '60', '61', '62', '63'
+
 ];
 
 function getNumbersCard6() {
@@ -277,7 +313,8 @@ function getCard6() {
 
 }
 
-const CARD_6_TABLE = getCard6().cardNumberTable;
+const CARD_6_TABLE = getCard6()
+    .cardNumberTable;
 
 function getTableCard6() {
 
@@ -290,19 +327,19 @@ function createParagraphElement(id, string) {
     const PARAGRAPH = DOCUMENT.createElement('p');
     PARAGRAPH.setAttribute('class', 'p');
     PARAGRAPH.setAttribute('id', id);
-    $(PARAGRAPH).prepend(DOCUMENT.createTextNode(string));
+    $(PARAGRAPH)
+        .prepend(DOCUMENT.createTextNode(string));
     return PARAGRAPH;
 
 }
 
-const INTRO =
-    `Ueberlege Dir nun bitte eine Zahl zwischen 1 und 63 und sage mir, ob sie sich auf der unten dargestellten sowie den folgenden Zahlenkarten (insgesamt 6) auftaucht:`;
+const INTRO = `Please imagine a number between 1 and 63 now!`;
 const PARAGRAPH_INTRO = createParagraphElement('exerciseIntro', INTRO);
 
-const OUTRO = `Ist Deine ausgedachte Zahl auf der obigen Karte dabei?`;
+const OUTRO = `Tell me, does the card above contain your number?`;
 const PARAGRAPH_OUTRO = createParagraphElement('exerciseOutro', OUTRO);
 
-const NO_RESULT = `Warum so geheimnisvoll?`;
+const NO_RESULT = `You imagined no number?`;
 const PARAGRAPH_NO_RESULT = createParagraphElement('result', NO_RESULT);
 
 function createButtonElement(id, string) {
@@ -311,7 +348,8 @@ function createButtonElement(id, string) {
     BUTTON.setAttribute('class', 'button');
     BUTTON.setAttribute('id', id);
     BUTTON.setAttribute('type', 'button');
-    $(BUTTON).prepend(DOCUMENT.createTextNode(string));
+    $(BUTTON)
+        .prepend(DOCUMENT.createTextNode(string));
     return BUTTON;
 
 }
@@ -408,7 +446,7 @@ function increaseSecretNumber(number) {
 
 }
 
-function runGame(htmlElement, userInputYes) {
+function runGame(htmlElement, userInputYes) { // eslint-disable-line no-unused-vars
 
     const LEVEL = getLevel();
     switch (LEVEL) {
@@ -421,7 +459,9 @@ function runGame(htmlElement, userInputYes) {
             }
             setSecretNumber(0);
             showHtmlElement(PARAGRAPH_INTRO);
-            $(htmlElement).empty().append(getTableCard1());
+            $(htmlElement)
+                .empty()
+                .append(getTableCard1());
             showHtmlElement(PARAGRAPH_OUTRO);
             showHtmlElement(BUTTON_YES);
             showHtmlElement(BUTTON_NO);
@@ -432,57 +472,73 @@ function runGame(htmlElement, userInputYes) {
         case 2:
             if (userInputYes) {
 
-                increaseSecretNumber(getCard1().cardNumbers[0]);
+                increaseSecretNumber(getCard1()
+                    .cardNumbers[0]);
 
             }
-            $(htmlElement).empty().append(getTableCard2());
+            $(htmlElement)
+                .empty()
+                .append(getTableCard2());
             increaseLevel(); // 3
             break;
 
         case 3:
             if (userInputYes) {
 
-                increaseSecretNumber(getCard2().cardNumbers[0]);
+                increaseSecretNumber(getCard2()
+                    .cardNumbers[0]);
 
             }
-            $(htmlElement).empty().append(getTableCard3());
+            $(htmlElement)
+                .empty()
+                .append(getTableCard3());
             increaseLevel(); // 4
             break;
 
         case 4:
             if (userInputYes) {
 
-                increaseSecretNumber(getCard3().cardNumbers[0]);
+                increaseSecretNumber(getCard3()
+                    .cardNumbers[0]);
 
             }
-            $(htmlElement).empty().append(getTableCard4());
+            $(htmlElement)
+                .empty()
+                .append(getTableCard4());
             increaseLevel(); // 5
             break;
 
         case 5:
             if (userInputYes) {
 
-                increaseSecretNumber(getCard4().cardNumbers[0]);
+                increaseSecretNumber(getCard4()
+                    .cardNumbers[0]);
 
             }
-            $(htmlElement).empty().append(getTableCard5());
+            $(htmlElement)
+                .empty()
+                .append(getTableCard5());
             increaseLevel(); // 6
             break;
 
         case 6:
             if (userInputYes) {
 
-                increaseSecretNumber(getCard5().cardNumbers[0]);
+                increaseSecretNumber(getCard5()
+                    .cardNumbers[0]);
 
             }
-            $(htmlElement).empty().append(getTableCard6());
+            $(htmlElement)
+                .empty()
+                .append(getTableCard6());
             increaseLevel(); // 7
             break;
 
         case 7:
             if (userInputYes) {
 
-                increaseSecretNumber(getCard6().cardNumbers[0]);
+                increaseSecretNumber(getCard6()
+                    .cardNumbers[0]);
 
             }
             hideHtmlElement(PARAGRAPH_INTRO);
@@ -490,7 +546,9 @@ function runGame(htmlElement, userInputYes) {
             hideHtmlElement(BUTTON_YES);
             hideHtmlElement(BUTTON_NO);
             showHtmlElement(BUTTON_AGAIN);
-            $(htmlElement).empty().append(getResult());
+            $(htmlElement)
+                .empty()
+                .append(getResult());
             setLevel(1);
             break;
 
@@ -512,7 +570,7 @@ function runGame(htmlElement, userInputYes) {
 
 function getResult() {
 
-    const RESULT = `Du hast Dir die Zahl ${getSecretNumber()} ausgedacht!`;
+    const RESULT = `My glass sphere tells me that your imaginary number is ->${getSecretNumber()}<-!`;
     const PARAGRAPH_RESULT = createParagraphElement('result', RESULT);
 
     if (getSecretNumber() > 0) {
