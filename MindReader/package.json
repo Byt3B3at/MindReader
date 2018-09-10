@@ -1,0 +1,10 @@
+{
+    "name": "MagischeKarten",
+    "version": "1.6.5",
+    "eslintConfig": {
+        "env": {
+            "browser": true,
+            "node": true
+        }
+    }
+}
