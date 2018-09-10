@@ -1,0 +1,349 @@
+@media all and (min-width: 1024px) {
+    #signWord {
+        font-size: 6vw;
+    }
+
+    #exerciseIntro {
+        font-size: 1.4vw;
+        max-width: 15vw;
+    }
+
+    #card1,
+    #card2,
+    #card3,
+    #card4,
+    #card5,
+    #card6 {
+        font-size: 1.4vw;
+    }
+
+    #exerciseOutro {
+        font-size: 1.4vw;
+        max-width: 18vw;
+    }
+
+    #buttonYes,
+    #buttonNo,
+    #buttonAgain {
+        font-size: 1.4vw;
+        height: 2.8vw;
+        width: 6.1vw;
+    }
+
+    #buttonYes:hover,
+    #buttonNo:hover,
+    #buttonAgain:hover {
+        background-color: #0000ff;
+    }
+
+    #result {
+        font-size: 2.3vw;
+        line-height: 1.3;
+        max-width: 28vw;
+    }
+
+    #noScriptArea {
+        font-size: 1.2vw;
+        max-width: 25vw;
+    }
+}
+
+@media all and (min-width: 450px) and (max-width: 1024px) {
+    #signWord {
+        font-size: 12vw;
+    }
+
+    #exerciseIntro {
+        font-size: 3vw;
+        max-width: 35vw;
+    }
+
+    #card1,
+    #card2,
+    #card3,
+    #card4,
+    #card5,
+    #card6 {
+        font-size: 3vw;
+    }
+
+    #exerciseOutro {
+        font-size: 3vw;
+        max-width: 45vw;
+    }
+
+    #buttonYes,
+    #buttonNo,
+    #buttonAgain {
+        font-size: 3vw;
+        height: 5.7vw;
+        width: 13.4vw;
+    }
+
+    #result {
+        font-size: 4.3vw;
+        line-height: 1.3;
+        max-width: 28vw;
+    }
+
+    #noScriptArea {
+        font-size: 2.3vw;
+        max-width: 53vw;
+    }
+}
+
+@media all and (max-width: 450px) {
+    #signWord {
+        font-size: 15vw;
+    }
+
+    #exerciseIntro {
+        font-size: 5vw;
+        max-width: 55vw;
+    }
+
+    #card1,
+    #card2,
+    #card3,
+    #card4,
+    #card5,
+    #card6 {
+        font-size: 5vw;
+    }
+
+    #exerciseOutro {
+        font-size: 5vw;
+        max-width: 65vw;
+    }
+
+    #buttonYes,
+    #buttonNo,
+    #buttonAgain {
+        font-size: 5vw;
+        height: 11vw;
+        width: 23vw;
+    }
+
+    #result {
+        font-size: 6vw;
+        line-height: 1.3;
+        max-width: 60vw;
+    }
+
+    #noScriptArea {
+        font-size: 2.3vw;
+        max-width: 53vw;
+    }
+}
+
+body {
+    background-color: #29315e;
+}
+
+/* unvisited link */
+a:link {
+    color: rgb(21, 255, 0);
+}
+
+/* visited link */
+a:visited {
+    color: rgb(216, 204, 34);
+}
+
+/* mouse over link */
+a:hover {
+    color: rgb(30, 238, 221);
+}
+
+/* selected link */
+a:active {
+    color: rgb(255, 115, 0);
+}
+
+#main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+#signWord {
+    -webkit-animation: neon .08s ease-in-out infinite alternate;
+    animation: neon .08s ease-in-out infinite alternate;
+    color: #c6e2ff;
+    font-family: 'Tangerine', serif;
+    line-height: 1em;
+    margin: auto;
+    opacity: 0;
+    padding-bottom: 0.04em;
+    -webkit-transition: opacity 2s ease-in;
+    -o-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+}
+
+@-webkit-keyframes neon {
+    from {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
+    }
+
+    to {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88), 0 0 60px #1e84f2;
+    }
+}
+
+@keyframes neon {
+    from {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
+    }
+
+    to {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88), 0 0 60px #1e84f2;
+    }
+}
+
+#signWord.load {
+    opacity: 1;
+}
+
+.p {
+    font-family: 'Overlock', cursive;
+}
+
+#textArea1 {
+    opacity: 0;
+    -webkit-transition: opacity 4s ease-in;
+    -o-transition: opacity 4s ease-in;
+    transition: opacity 4s ease-in;
+}
+
+#textArea1.load {
+    opacity: 1;
+}
+
+#exerciseIntro {
+    color: #cccedd;
+    line-height: 1.3;
+    margin: auto;
+    padding-bottom: 0.8em;
+    text-align: center;
+}
+
+.table {
+    font-family: Verdana;
+}
+
+#tableArea {
+    opacity: 0;
+    -webkit-transition: opacity 6s ease-in;
+    -o-transition: opacity 6s ease-in;
+    transition: opacity 6s ease-in;
+}
+
+#tableArea.load {
+    opacity: 1;
+}
+
+#card1,
+#card2,
+#card3,
+#card4,
+#card5,
+#card6 {
+    background: url(img/paper.gif);
+    border-radius: 0.8em;
+    border-collapse: separate;
+    border-spacing: 1em;
+    -webkit-box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
+    box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
+    color: #294b5e;
+    margin: auto;
+    text-align: center;
+}
+
+#card1,
+#card2,
+#card3,
+#card4,
+#card5,
+#card6 td {
+    line-height: 0.5;
+}
+
+#textArea2 {
+    opacity: 0;
+    -webkit-transition: opacity 8s ease-in;
+    -o-transition: opacity 8s ease-in;
+    transition: opacity 8s ease-in;
+}
+
+#textArea2.load {
+    opacity: 1;
+}
+
+#exerciseOutro {
+    color: #cccedd;
+    font-weight: bold;
+    line-height: 1.3;
+    margin: auto;
+    padding: 0.8em;
+    text-align: center;
+}
+
+.button {
+    border: none;
+    text-align: center;
+}
+
+#buttonArea {
+    margin: auto;
+    opacity: 0;
+    -webkit-transition: opacity 10s ease-in;
+    -o-transition: opacity 10s ease-in;
+    transition: opacity 10s ease-in;
+}
+
+#buttonArea.load {
+    opacity: 1;
+}
+
+#buttonYes,
+#buttonNo,
+#buttonAgain {
+    border-radius: 0.4em;
+    -webkit-box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
+    box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
+    background-color: #004080;
+    color: white;
+    cursor: pointer;
+    margin-left: 0.7em;
+    margin-right: 0.7em;
+}
+
+#buttonYes:active,
+#buttonNo:active,
+#buttonAgain:active {
+    background-color: #0000ff;
+    -webkit-box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
+    box-shadow: 0.5em 0.5em 0.7em 0.2em rgba(0, 0, 51, 0.82);
+    -webkit-transform: translateY(4px);
+    -ms-transform: translateY(4px);
+    transform: translateY(4px);
+}
+
+#result {
+    color: #cccedd;
+    line-height: 1.3;
+    margin: auto;
+    text-align: center;
+}
+
+#noScriptArea {
+    color: #cccedd;
+    line-height: 1.3;
+    margin: auto;
+    padding: 0.9em;
+    text-align: center;
+}
