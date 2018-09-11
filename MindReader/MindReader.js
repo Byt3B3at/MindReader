@@ -102,35 +102,35 @@ function sliceNumbers(numbers) {
     return [
         [
             cachedNumbers.slice(0, 4)
-            .join(', ')
+            .join(' | ')
         ],
         [
             cachedNumbers.slice(4, 8)
-            .join(', ')
+            .join(' | ')
         ],
         [
             cachedNumbers.slice(8, 12)
-            .join(', ')
+            .join(' | ')
         ],
         [
             cachedNumbers.slice(12, 16)
-            .join(', ')
+            .join(' | ')
         ],
         [
             cachedNumbers.slice(16, 20)
-            .join(', ')
+            .join(' | ')
         ],
         [
             cachedNumbers.slice(20, 24)
-            .join(', ')
+            .join(' | ')
         ],
         [
             cachedNumbers.slice(24, 28)
-            .join(', ')
+            .join(' | ')
         ],
         [
             cachedNumbers.slice(28)
-            .join(', ')
+            .join(' | ')
         ]
     ];
 

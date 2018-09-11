@@ -32,6 +32,8 @@
 
         <script src='MindReader.js'></script>
 
+        <script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+
     </head>
 
     <body>
@@ -43,6 +45,7 @@
             <div id='tableArea'></div>
             <div id='textArea2'></div>
             <div id='buttonArea'></div>
+            <div id='google_translate_element'></div>
         </div>
 
         <script>
@@ -104,6 +107,10 @@
                 });
                 hideHtmlElement(buttonAgain);
 
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false },
+                        'google_translate_element');
+                }
             }
             //-->
         </script>
